@@ -19,9 +19,9 @@ CREATE TABLE qidb.posts
 		title varchar (400) NULL,
 		body TEXT NULL,
 		author INTEGER UNSIGNED NULL,
-		created_datetime INTEGER UNSIGNED NULL,
-		modified_datetime INTEGER UNSIGNED NULL,
 		featured_image INTEGER UNSIGNED NULL,
+		created_at DATETIME NULL,
+		updated_at DATETIME NULL,
 		PRIMARY KEY (id)
 )
 ENGINE=InnoDB
@@ -30,4 +30,4 @@ COLLATE=utf8_general_ci;
 
 INSERT INTO qidb.posts (title, body, author, featured_image) VALUES
 	('Sample Post', 'This is a sample post.', 1, 0),
-	('Sample Post 2', 'This is another sample.', 2, 0);
+	('Sample Post 2', 'This is another sample.', 1, 0);
