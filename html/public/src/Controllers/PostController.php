@@ -22,7 +22,7 @@ class PostController {
         $id = $args["id"];
         $post = Post::find($id);
         if ($post === null) {
-            return $this->c->get('notFoundHandler')($request, $response);
+            return $this->c->get('page404')($request, $response);
         }
         $r = $response->withJson($post);
         return $r;
