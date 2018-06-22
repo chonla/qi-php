@@ -7,10 +7,10 @@ use \Slim\Container;
 use \Qi\Models\Post as Post;
 
 class PostController {
-    private $db;
+    private $c;
 
     function __construct(\Slim\Container $c) {
-        $this->db = $c->get('db');
+        $this->c = $c;
     }
 
     public function all(Request $request, Response $response, array $args) {
@@ -20,7 +20,11 @@ class PostController {
 
     public function one(Request $request, Response $response, array $args) {
         $id = $args["id"];
-        $r = $response->withJson(Post::find($id));
+        $post = Post::find($id);
+        if ($post === null) {
+            return $this->c->get('notFoundHandler')($request, $response);
+        }
+        $r = $response->withJson($post);
         return $r;
     }
 
@@ -38,5 +42,8 @@ class PostController {
             ->withHeader('Location', sprintf('/posts/%d', $post->id))
             ->withStatus(201);
         return $r;
+    }
+
+    public function update(Request $request, Response $response, array $args) {
     }
 }

@@ -1,16 +1,16 @@
 <?php
 $container = $app->getContainer();
 
-// Service factory for the ORM
-$container['db'] = function ($container) {
-    $capsule = new \Illuminate\Database\Capsule\Manager;
-    $capsule->addConnection($container['settings']['db']);
+// // Service factory for the ORM
+// $container['db'] = function ($container) {
+//     $capsule = new \Illuminate\Database\Capsule\Manager;
+//     $capsule->addConnection($container['settings']['db']);
 
-    $capsule->setAsGlobal();
-    $capsule->bootEloquent();
+//     $capsule->setAsGlobal();
+//     $capsule->bootEloquent();
 
-    return $capsule;
-};
+//     return $capsule;
+// };
 
 $container['notFoundHandler'] = function ($container) {
     return function ($request, $response) use ($container) {
