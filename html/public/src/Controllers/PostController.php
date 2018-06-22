@@ -32,10 +32,9 @@ class PostController {
         $post_data = $request->getParsedBody();
 
         $post = new Post;
-        $post->title = filter_var($post_data['title'], FILTER_SANITIZE_STRING);
-        $post->body = filter_var($post_data['body'], FILTER_SANITIZE_STRING);
-        $post->author = 1;
         $post->featured_image = 0;
+        $this->apply($post, $post_data);
+        $post->author = 1;
         $post->save();
 
         $r = $response
@@ -45,5 +44,23 @@ class PostController {
     }
 
     public function update(Request $request, Response $response, array $args) {
+        $id = $args["id"];
+        $post_data = $request->getParsedBody();
+
+        $post = Post::find($id);
+        $this->apply($post, $post_data);
+        $post->author = 1;
+        $post->save();
+
+        $r = $response->withStatus(200);
+        return $r;
+    }
+
+    private function apply(Post $post, array $data) {
+        $post->title = filter_var($data['title'], FILTER_SANITIZE_STRING);
+        $post->body = filter_var($data['body'], FILTER_SANITIZE_STRING);
+        if (array_key_exists('featured_image', $data)) {
+            $post->featured_image = $data['featured_image'];
+        }
     }
 }
