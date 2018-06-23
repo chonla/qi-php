@@ -43,14 +43,45 @@ class PostController {
         return $r;
     }
 
+    public function replace(Request $request, Response $response, array $args) {
+        $id = $args["id"];
+        $post_data = $request->getParsedBody();
+
+        $post = Post::find($id);
+        if ($post === null) {
+            return $this->c->get('page404')($request, $response);
+        }
+        $this->apply($post, $post_data);
+        $post->save();
+
+        $r = $response->withStatus(200);
+        return $r;
+    }
+
     public function update(Request $request, Response $response, array $args) {
         $id = $args["id"];
         $post_data = $request->getParsedBody();
 
         $post = Post::find($id);
-        $this->apply($post, $post_data);
-        $post->author = 1;
+        if ($post === null) {
+            return $this->c->get('page404')($request, $response);
+        }
+        $this->partial_apply($post, $post_data);
         $post->save();
+
+        $r = $response->withStatus(200);
+        return $r;
+    }
+
+    public function delete(Request $request, Response $response, array $args) {
+        $id = $args["id"];
+        $post_data = $request->getParsedBody();
+
+        $post = Post::find($id);
+        if ($post === null) {
+            return $this->c->get('page404')($request, $response);
+        }
+        $post->delete();
 
         $r = $response->withStatus(200);
         return $r;
@@ -59,6 +90,18 @@ class PostController {
     private function apply(Post $post, array $data) {
         $post->title = filter_var($data['title'], FILTER_SANITIZE_STRING);
         $post->body = filter_var($data['body'], FILTER_SANITIZE_STRING);
+        if (array_key_exists('featured_image', $data)) {
+            $post->featured_image = $data['featured_image'];
+        }
+    }
+
+    private function partial_apply(Post $post, array $data) {
+        if (array_key_exists('title', $data)) {
+            $post->title = filter_var($data['title'], FILTER_SANITIZE_STRING);
+        }
+        if (array_key_exists('body', $data)) {
+            $post->body = filter_var($data['body'], FILTER_SANITIZE_STRING);
+        }
         if (array_key_exists('featured_image', $data)) {
             $post->featured_image = $data['featured_image'];
         }

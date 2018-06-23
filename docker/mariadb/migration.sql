@@ -28,6 +28,6 @@ ENGINE=InnoDB
 DEFAULT CHARSET=utf8
 COLLATE=utf8_general_ci;
 
-INSERT INTO qidb.posts (title, body, author, featured_image) VALUES
-	('Sample Post', 'This is a sample post.', 1, 0),
-	('Sample Post 2', 'This is another sample.', 1, 0);
+INSERT INTO qidb.posts (title, body, author, featured_image, created_at, updated_at) VALUES
+	('Sample Post', 'This is a sample post.', 1, 0, NOW(), NOW()),
+	('Sample Post 2', 'This is another sample.', 1, 0, NOW(), NOW());
