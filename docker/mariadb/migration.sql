@@ -30,4 +30,18 @@ COLLATE=utf8_general_ci;
 
 INSERT INTO qidb.posts (title, body, author, featured_image, created_at, updated_at) VALUES
 	('Sample Post', 'This is a sample post.', 1, 0, NOW(), NOW()),
-	('Sample Post 2', 'This is another sample.', 1, 0, NOW(), NOW());
+	('Sample Post 2', 'This is another sample.', 1, 0, NOW(), NOW()),
+	('Awesome Post', 'This is an awesome post.', 1, 0, NOW(), NOW()),
+	('Go for avengers', 'Ironman is missing.', 1, 0, NOW(), NOW()),
+	('Spiderman is just a young boy', 'I wish he will grow up someday.', 1, 0, NOW(), NOW()),
+	('Castlevana', 'Oh! you spell it wrong.', 1, 0, NOW(), NOW()),
+	('Master Chef', 'I have no idea about this.', 1, 0, NOW(), NOW()),
+	('Lorem ipsum', 'Rola Takizawa.', 1, 0, NOW(), NOW()),
+	('BNK48', 'Cherprang is the best.', 1, 0, NOW(), NOW()),
+	('Russia!', 'Soccer!', 1, 0, NOW(), NOW()),
+	('Nobody is here', 'So, who are you then?', 1, 0, NOW(), NOW()),
+	('Ok Google', 'Hi!! People', 1, 0, NOW(), NOW()),
+	('The Siri', 'Noooo....', 1, 0, NOW(), NOW()),
+	('Back to the Jurassic Park', 'Sorry, I am lost.', 1, 0, NOW(), NOW()),
+	('Lost in space', 'That is the NetFlix\'s movie.', 1, 0, NOW(), NOW()),
+	('Walking Dead', 'Let it go.', 1, 0, NOW(), NOW());

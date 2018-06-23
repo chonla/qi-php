@@ -14,7 +14,18 @@ class PostController {
     }
 
     public function all(Request $request, Response $response, array $args) {
-        $r = $response->withJson(Post::all());
+        $req_data = $request->getQueryParams();
+
+        $pagination = array_merge([
+            "page" => 1,
+            "limit" => 10
+        ], $req_data);
+
+        $posts = Post::orderBy('id', 'asc')
+            ->skip(($pagination["page"] - 1) * $pagination["limit"])
+            ->take($pagination["limit"])
+            ->get();
+        $r = $response->withJson($posts);
         return $r;
     }
 
