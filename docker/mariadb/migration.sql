@@ -1,4 +1,4 @@
-CREATE TABLE qidb.authors
+CREATE TABLE qidb.users
 (
 	id INTEGER UNSIGNED NULL AUTO_INCREMENT,
 	display varchar (50) NULL,
@@ -13,7 +13,7 @@ ENGINE=InnoDB
 DEFAULT CHARSET=utf8
 COLLATE=utf8_general_ci;
 
-INSERT INTO qidb.authors (display, login, pwd, created_at, updated_at, displayed_image)
+INSERT INTO qidb.users (display, login, pwd, created_at, updated_at, displayed_image)
 	VALUES ('Administrator', 'admin', CONCAT('1234567890abcdef1234567890abcdef.', SHA2('1234567890abcdef1234567890abcdefadmin', 256)), NOW(), NOW(), 0);
 
 CREATE TABLE qidb.posts
