@@ -10,3 +10,7 @@ $container['page404'] = function ($container) {
             ->write($content);
     };
 };
+
+$container['jwt'] = function ($container) {
+    return (new \Qi\Middlewares\Jwt)->get();
+};
