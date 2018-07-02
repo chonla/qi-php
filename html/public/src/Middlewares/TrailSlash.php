@@ -5,8 +5,7 @@ use \Psr\Http\Message\ServerRequestInterface as Request;
 use \Psr\Http\Message\ResponseInterface as Response;
 
 class TrailSlash {
-    public function __invoke(Request $request, Response $response, callable $next)
-    {
+    public function __invoke(Request $request, Response $response, callable $next) {
         $uri = $request->getUri();
         $path = $uri->getPath();
         if ($path != '/' && substr($path, -1) == '/') {

@@ -21,6 +21,8 @@ services:
       - 9000
     volumes:
       - ./html:/var/www/html
+    environment:
+      - JWT_SECRET=ThereIsNoAngelAboveButInOurHeart
   mariadb:
     image: mariadb:latest
     ports:

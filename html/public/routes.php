@@ -14,3 +14,5 @@ $app->group('/posts', function () {
         $this->delete('', '\Qi\Controllers\PostController:delete');
     });
 });
+
+$app->post('/login', '\Qi\Controllers\LoginController:login');

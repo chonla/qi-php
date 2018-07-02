@@ -2,8 +2,10 @@ CREATE TABLE qidb.authors
 (
 	id INTEGER UNSIGNED NULL AUTO_INCREMENT,
 	display varchar (50) NULL,
-	created_datetime INTEGER UNSIGNED NULL,
-	modified_datetime INTEGER UNSIGNED NULL,
+	login varchar (50) NOT NULL,
+	pwd varchar (100) NOT NULL,
+	created_at DATETIME NULL,
+	updated_at DATETIME NULL,
 	displayed_image INTEGER UNSIGNED NULL,
 	PRIMARY KEY (id)
 )
@@ -11,7 +13,8 @@ ENGINE=InnoDB
 DEFAULT CHARSET=utf8
 COLLATE=utf8_general_ci;
 
-INSERT INTO qidb.authors (display) VALUES ('admin');
+INSERT INTO qidb.authors (display, login, pwd, created_at, updated_at, displayed_image)
+	VALUES ('Administrator', 'admin', CONCAT('1234567890abcdef1234567890abcdef.', SHA2('1234567890abcdef1234567890abcdefadmin', 256)), NOW(), NOW(), 0);
 
 CREATE TABLE qidb.posts
 	(
