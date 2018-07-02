@@ -10,7 +10,7 @@ class Jwt {
             "path" => "/",
             "ignore" => ["/login"],
             "relaxed" => ["localhost", "127.0.0.1"],
-            "attribute" => false,
+            "attribute" => "decoded_payload",
             "secret" => getenv("JWT_SECRET"),
             "error" => function ($response, $arguments) {
                 $data["status"] = "error";
