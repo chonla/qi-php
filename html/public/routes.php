@@ -17,4 +17,10 @@ $app->group('/posts', function () {
     });
 });
 
+$app->group('/users', function() {
+    $this->group('', function() {
+        $this->get('', '\Qi\Controllers\UserController:all');
+    });
+})->add('jwt');
+
 $app->post('/login', '\Qi\Controllers\LoginController:login');

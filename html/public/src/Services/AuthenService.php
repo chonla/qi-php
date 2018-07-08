@@ -3,11 +3,11 @@
 namespace Qi\Services;
 
 use \Firebase\JWT\JWT;
-use \Qi\Models\User as User;
+use \Qi\Models\Credential as Credential;
 
 class AuthenService {
     public function login($credential) {
-        $user = User::where([
+        $user = Credential::where([
             "login" => $credential["login"]
         ])->first();
 

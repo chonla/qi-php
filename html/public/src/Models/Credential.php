@@ -4,7 +4,7 @@ namespace Qi\Models;
 
 use \Illuminate\Database\Eloquent\Model as Model;
 
-class User extends Model {
+class Credential extends Model {
     protected $table = 'users';
-    protected $hidden = ['pwd'];
+    protected $visible = ['id', 'login', 'pwd'];
 }
