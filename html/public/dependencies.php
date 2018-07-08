@@ -12,5 +12,11 @@ $container['page404'] = function ($container) {
 };
 
 $container['jwt'] = function ($container) {
-    return (new \Qi\Middlewares\Jwt)->get();
+    $jwt = new \Qi\Middlewares\Jwt($container);
+    return $jwt->get();
+};
+
+$container['auth'] = function ($container) {
+    $auth = new \Qi\Services\AuthenService;
+    return $auth;
 };

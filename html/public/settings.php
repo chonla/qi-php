@@ -15,8 +15,8 @@ return [
             'collation' => 'utf8_unicode_ci',
             'prefix'    => '',
         ],
-        'jwt' => [
-            'secret' => 'ThereIsOnlyOneBookLyingOnTheGreenTableInTheLivingRoom',
+        'public_scope' => [
+            'posts.get',
         ]
     ],
 ];
