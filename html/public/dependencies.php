@@ -17,11 +17,16 @@ $container['jwt'] = function ($container) {
 };
 
 $container['auth'] = function ($container) {
-    $auth = new \Qi\Services\AuthenService;
+    $auth = new \Qi\Services\Authen;
     return $auth;
 };
 
 $container['paginator'] = function ($container) {
-    $paginator = new \Qi\Services\PaginatorService($container);
+    $paginator = new \Qi\Services\Paginator($container);
     return $paginator;
+};
+
+$container['posts'] = function ($container) {
+    $posts = new \Qi\Pageables\Posts;
+    return $posts;
 };

@@ -8,34 +8,22 @@ use \Qi\Models\Post as Post;
 
 class PostController {
     private $c;
+    private $paginator;
+    private $posts;
 
     function __construct(\Slim\Container $c) {
         $this->c = $c;
         $this->paginator = $c->get('paginator');
+        $this->posts = $c->get('posts');
     }
 
     public function all(Request $request, Response $response, array $args) {
         $req_data = $request->getQueryParams();
 
         $pagination = $this->paginator->paginate($req_data);
+        $posts = $this->posts->page($pagination);
 
-        $posts = Post::orderBy('id', 'asc')
-            ->skip(($pagination['page'] - 1) * $pagination['limit'])
-            ->take($pagination['limit'])
-            ->get();
-        $count = Post::count();
-        $page_count = ceil($count / $pagination['limit']);
-        if ($page_count === 0) {
-            $page_count = 1;
-        }
-
-        $result = [
-            'page_count' => $page_count,
-            'page' => $pagination['page'],
-            'limit' => $pagination['limit'],
-            'result' => $posts
-        ];
-        $r = $response->withJson($result);
+        $r = $response->withJson($posts);
         return $r;
     }
 

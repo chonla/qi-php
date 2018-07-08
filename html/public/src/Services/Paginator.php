@@ -2,7 +2,7 @@
 
 namespace Qi\Services;
 
-class PaginatorService {
+class Paginator {
     private $c;
 
     function __construct(\Slim\Container $c) {

@@ -5,7 +5,7 @@ namespace Qi\Services;
 use \Firebase\JWT\JWT;
 use \Qi\Models\Credential as Credential;
 
-class AuthenService {
+class Authen {
     public function login($credential) {
         $user = Credential::where([
             "login" => $credential["login"]
