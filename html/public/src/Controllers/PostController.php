@@ -11,44 +11,36 @@ class PostController {
 
     function __construct(\Slim\Container $c) {
         $this->c = $c;
+        $this->paginator = $c->get('paginator');
     }
 
     public function all(Request $request, Response $response, array $args) {
         $req_data = $request->getQueryParams();
 
-        $pagination = array_merge([
-            "page" => 1,
-            "limit" => 10
-        ], $req_data);
-        if ($pagination["page"] <= 0) {
-            $pagination["page"] = 1;
-        }
-        if ($pagination["limit"] <= 0) {
-            $pagination["limit"] = 10;
-        }
+        $pagination = $this->paginator->paginate($req_data);
 
         $posts = Post::orderBy('id', 'asc')
-            ->skip(($pagination["page"] - 1) * $pagination["limit"])
-            ->take($pagination["limit"])
+            ->skip(($pagination['page'] - 1) * $pagination['limit'])
+            ->take($pagination['limit'])
             ->get();
         $count = Post::count();
-        $page_count = ceil($count / $pagination["limit"]);
+        $page_count = ceil($count / $pagination['limit']);
         if ($page_count === 0) {
             $page_count = 1;
         }
 
         $result = [
-            "page_count" => $page_count,
-            "page" => $pagination["page"],
-            "limit" => $pagination["limit"],
-            "result" => $posts
+            'page_count' => $page_count,
+            'page' => $pagination['page'],
+            'limit' => $pagination['limit'],
+            'result' => $posts
         ];
         $r = $response->withJson($result);
         return $r;
     }
 
     public function one(Request $request, Response $response, array $args) {
-        $id = $args["id"];
+        $id = $args['id'];
         $post = Post::find($id);
         if ($post === null) {
             return $this->c->get('page404')($request, $response);
@@ -73,7 +65,7 @@ class PostController {
     }
 
     public function replace(Request $request, Response $response, array $args) {
-        $id = $args["id"];
+        $id = $args['id'];
         $post_data = $request->getParsedBody();
 
         $post = Post::find($id);
@@ -88,7 +80,7 @@ class PostController {
     }
 
     public function update(Request $request, Response $response, array $args) {
-        $id = $args["id"];
+        $id = $args['id'];
         $post_data = $request->getParsedBody();
 
         $post = Post::find($id);
@@ -103,7 +95,7 @@ class PostController {
     }
 
     public function delete(Request $request, Response $response, array $args) {
-        $id = $args["id"];
+        $id = $args['id'];
         $post_data = $request->getParsedBody();
 
         $post = Post::find($id);

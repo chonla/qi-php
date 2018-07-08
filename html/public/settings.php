@@ -15,8 +15,8 @@ return [
             'collation' => 'utf8_unicode_ci',
             'prefix'    => '',
         ],
-        'public_scope' => [
-            'posts.get',
-        ]
+        'pagination' => [
+            'size' => 10,
+        ],
     ],
 ];

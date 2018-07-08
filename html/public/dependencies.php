@@ -20,3 +20,8 @@ $container['auth'] = function ($container) {
     $auth = new \Qi\Services\AuthenService;
     return $auth;
 };
+
+$container['paginator'] = function ($container) {
+    $paginator = new \Qi\Services\PaginatorService($container);
+    return $paginator;
+};
