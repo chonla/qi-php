@@ -30,7 +30,7 @@ services:
     volumes:
       # - database_data:/var/lib/mysql
       - ./docker/mariadb:/opt/data
-    command: --init-file /opt/data/migration.sql
+    command: --init-file /opt/data/seed.sql
     environment:
       - MYSQL_ROOT_PASSWORD=qi1234
       - MYSQL_DATABASE=qidb
