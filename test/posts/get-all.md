@@ -9,6 +9,7 @@
 | StatusCode | 200 |
 | HEADER.content-type | /^application/json[;$]/ |
 | DATA.page | 1 |
+| DATA.result[0].id | 1 |
 
 ### Example
 
