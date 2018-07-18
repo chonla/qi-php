@@ -1,6 +1,6 @@
-# Get all posts should return list of posts and start with page 1 and limit of 10
+# Get all posts should return list of posts in the given page
 
-## GET /posts
+## GET /posts?&page=2
 
 ## Expectation
 
@@ -8,16 +8,14 @@
 | - | - |
 | StatusCode | 200 |
 | HEADER.content-type | /^application/json[;$]/ |
-| DATA.page | 1 |
-| DATA.limit | 10 |
-| DATA.result[0].id | 1 |
+| DATA.page | 2 |
 
 ### Example
 
 ```
 {
     "page_count": 2,
-    "page": 1,
+    "page": 2,
     "limit": 10,
     "result": [
         {
