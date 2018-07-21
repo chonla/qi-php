@@ -1,0 +1,21 @@
+:80 {
+    root /var/www/html/public
+    gzip
+    fastcgi / php:9000 php
+    rewrite {
+        to {path} {path}/ /index.php/{uri}
+    }
+    log /var/log/caddy.log
+    errors /var/log/caddy.log
+}
+:443 {
+    root /var/www/html/public
+    gzip
+    fastcgi / php:9000 php
+    rewrite {
+        to {path} {path}/ /index.php/{uri}
+    }
+    log /var/log/caddy.log
+    errors /var/log/caddy.log
+    tls self_signed
+}
