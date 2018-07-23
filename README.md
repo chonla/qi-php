@@ -13,3 +13,13 @@ docker-compose up -d
 ```
 docker-compose down
 ```
+
+## Running Test
+
+```
+cotton test
+```
+
+## Cotton?
+
+See [Cotton](https://github.com/chonla/cotton).
