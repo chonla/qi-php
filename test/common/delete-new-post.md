@@ -2,3 +2,6 @@
 
 ## DELETE {new-post-uri}
 
+| Header | Value |
+| - | - |
+| Authorization | Bearer {access-token} |
