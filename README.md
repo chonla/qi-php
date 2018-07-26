@@ -1,6 +1,10 @@
 # Qi
 
-Created on top of LEMP stack (https://github.com/chonla/lemp).
+Headless CMS created on top of LEMP stack (https://github.com/chonla/lemp).
+
+## Current status
+
+In progress
 
 ## Start containers
 
