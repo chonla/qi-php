@@ -18,12 +18,9 @@ docker-compose up -d
 docker-compose down
 ```
 
-## What does Qi provide?
+## Documentation
 
-* Users
-* Posts
-
-
+See [docs](https://chonla.github.io/qi/)
 
 ## Running RESTful API Test
 
