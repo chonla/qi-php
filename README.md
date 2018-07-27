@@ -18,10 +18,17 @@ docker-compose up -d
 docker-compose down
 ```
 
-## Running Test
+## What does Qi provide?
+
+* Users
+* Posts
+
+
+
+## Running RESTful API Test
 
 ```
-cotton test
+cotton docs
 ```
 
 ## Cotton?
