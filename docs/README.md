@@ -14,8 +14,8 @@
 
 # How To Run Test
 
-Most of document in /docs directory are executable by cotton.
+Most of document in /docs directory are executable by [cotton](https://github.com/chonla/cotton).
 
 ## Get Cotton
 
-https://github.com/chonla/cotton
+[https://github.com/chonla/cotton](https://github.com/chonla/cotton)
