@@ -15,6 +15,10 @@ $app->group('/posts', function () {
     });
 });
 
+$app->group('/me', function() {
+    $this->patch('/password', '\Qi\Controllers\MeController:updatePassword');
+})->add('jwt');
+
 $app->group('/users', function() {
     $this->group('', function() {
         $this->get('', '\Qi\Controllers\UserController:all');

@@ -6,13 +6,17 @@
 
 * [Authorization](auth/login.md)
 
+### Me
+
+* [Change my password](me/change-password.md)
+
 ### Users
 
 Administrative level is required.
 
 * [Create a user](users/create-one.md)
 * [Remove a user](users/delete-one.md)
-* [Change password](users/change-password.md)
+* [Change a user password](users/change-password.md)
 
 ### Posts
 
