@@ -8,9 +8,11 @@
 
 ### Users
 
+Administrative level is required.
+
 * [Create a user](users/create-one.md)
 * [Remove a user](users/delete-one.md)
-* Change password
+* [Change password](users/change-password.md)
 
 ### Posts
 

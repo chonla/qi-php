@@ -12,10 +12,22 @@ class Authen {
         ])->first();
 
         list($salt) = explode(".", $user->pwd);
-        if ((sprintf("%s.%s", $salt, hash("sha256", sprintf("%s%s", $salt, $credential["pwd"])))) === $user->pwd) {
+        if ($this->hash($credential["pwd"], $salt) == $user->pwd) {
             return $user;
         }
         return NULL;
+    }
+
+    public function hash($pwd, $salt) {
+        return sprintf("%s.%s", $salt, hash("sha256", sprintf("%s%s", $salt, $pwd)));
+    }
+
+    public function generateHash($pwd) {
+        return $this->hash($pwd, $this->salt());
+    }
+
+    public function salt() {
+        return bin2hex(random_bytes(16));
     }
 
     public function generateToken($payload) {

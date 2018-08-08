@@ -23,6 +23,9 @@ $app->group('/users', function() {
     $this->group('/{id:[0-9]+}', function() {
         $this->get('', '\Qi\Controllers\UserController:one');
         $this->delete('', '\Qi\Controllers\UserController:delete');
+        $this->group('/password', function() {
+            $this->patch('', '\Qi\Controllers\UserController:updatePassword');
+        });
     });
 })->add('admin-only')->add('jwt');
 
