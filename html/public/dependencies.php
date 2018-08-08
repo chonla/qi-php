@@ -11,6 +11,11 @@ $container['page404'] = function ($container) {
     };
 };
 
+$container['admin-only'] = function ($container) {
+    $adminonly = new \Qi\Middlewares\AdminOnly;
+    return $adminonly;
+};
+
 $container['jwt'] = function ($container) {
     $jwt = new \Qi\Middlewares\Jwt($container);
     return $jwt->get();

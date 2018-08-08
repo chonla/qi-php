@@ -20,7 +20,8 @@ class LoginController {
             $payload = [
                 'id' => $user->id, 
                 'display' => $user->display, 
-                'display_image' => $user->displayed_image
+                'display_image' => $user->displayed_image,
+                'level' => $user->level,
             ];
             $token = $this->auth->generateToken($payload);
             return $response->withJson(['token' => $token]);

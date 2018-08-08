@@ -7,14 +7,15 @@ CREATE TABLE qidb.users
 	created_at DATETIME NULL,
 	updated_at DATETIME NULL,
 	displayed_image INTEGER UNSIGNED NULL,
+	level INTEGER NOT NULL,
 	PRIMARY KEY (id)
 )
 ENGINE=InnoDB
 DEFAULT CHARSET=utf8
 COLLATE=utf8_general_ci;
 
-INSERT INTO qidb.users (display, login, pwd, created_at, updated_at, displayed_image)
-	VALUES ('Administrator', 'admin', CONCAT('1234567890abcdef1234567890abcdef.', SHA2('1234567890abcdef1234567890abcdefadmin', 256)), NOW(), NOW(), 0);
+INSERT INTO qidb.users (display, login, pwd, created_at, updated_at, displayed_image, level)
+	VALUES ('Administrator', 'admin', CONCAT('1234567890abcdef1234567890abcdef.', SHA2('1234567890abcdef1234567890abcdefadmin', 256)), NOW(), NOW(), 0, 99);
 
 CREATE TABLE qidb.posts
 	(

@@ -76,6 +76,7 @@ class UserController {
 
         $user = new User;
         $user->displayed_image = 0;
+        $user->level = User::USER;
         $this->apply($user, $user_data);
         $user->save();
 
