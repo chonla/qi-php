@@ -4,7 +4,7 @@
 
 * [Authorization](auth/login.md)
 * [Create a user](users/create-one.md)
-* Remove a user
+* [Remove a user](users/delete-one.md)
 * Change password
 * [Create a post](posts/create-one.md)
 * [Get a post](posts/get-one.md)
