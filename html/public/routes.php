@@ -18,6 +18,11 @@ $app->group('/posts', function () {
 $app->group('/users', function() {
     $this->group('', function() {
         $this->get('', '\Qi\Controllers\UserController:all');
+        $this->post('', '\Qi\Controllers\UserController:add')->add('jwt');
+    });
+    $this->group('/{id:[0-9]+}', function() {
+        $this->get('', '\Qi\Controllers\UserController:one');
+        $this->delete('', '\Qi\Controllers\UserController:delete');
     });
 })->add('jwt');
 

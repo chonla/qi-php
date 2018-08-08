@@ -3,7 +3,7 @@
 ## Content
 
 * [Authorization](auth/login.md)
-* Create a user
+* [Create a user](users/create-one.md)
 * Remove a user
 * Change password
 * [Create a post](posts/create-one.md)
