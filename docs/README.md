@@ -16,6 +16,10 @@
 
 Most of document in /docs directory are executable by [cotton](https://github.com/chonla/cotton).
 
+```
+cotton docs
+```
+
 ## Get Cotton
 
 [https://github.com/chonla/cotton](https://github.com/chonla/cotton)
