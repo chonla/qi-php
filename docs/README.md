@@ -2,10 +2,18 @@
 
 ## Content
 
+### Authentication
+
 * [Authorization](auth/login.md)
+
+### Users
+
 * [Create a user](users/create-one.md)
 * [Remove a user](users/delete-one.md)
 * Change password
+
+### Posts
+
 * [Create a post](posts/create-one.md)
 * [Get a post](posts/get-one.md)
 * [Update a post](posts/update-one.md)
