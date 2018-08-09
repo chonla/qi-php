@@ -5,6 +5,7 @@ use \Psr\Http\Message\ServerRequestInterface as Request;
 use \Psr\Http\Message\ResponseInterface as Response;
 use \Slim\Container;
 use \Qi\Models\Post as Post;
+use \Qi\Models\User as User;
 
 class PostController {
     private $c;
@@ -94,7 +95,7 @@ class PostController {
         if ($post === null) {
             return $this->c->get('page404')($request, $response);
         }
-        if ($post->author !== $requester['id']) {
+        if ($post->author !== $requester['id'] && $requester['level'] !== User::ADMIN) {
             return $response->withStatus(403);
         }
         $post->delete();
