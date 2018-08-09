@@ -1,9 +1,10 @@
-# Delete a post
+# Delete a post by non-owner should not success
 
 ## Precondition
 
-* [Login as a user](../common/login-by-user-1.md)
+* [Login with User 1 Account](../common/login-by-user-1.md)
 * [Create New Post](../common/create-new-post.md)
+* [Login with User 2 Account](../common/login-by-user-2.md)
 
 ## DELETE {new-post-uri}
 
@@ -16,4 +17,4 @@
 
 | Assert | Expected |
 | - | - |
-| StatusCode | 200 |
+| StatusCode | 403 |

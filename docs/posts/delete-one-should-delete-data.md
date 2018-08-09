@@ -2,7 +2,7 @@
 
 ## Precondition
 
-* [Login](../common/login.md)
+* [Login as a user](../common/login-by-user-1.md)
 * [Create New Post](../common/create-new-post.md)
 * [Delete New Post](../common/delete-new-post.md)
 

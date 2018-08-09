@@ -40,10 +40,12 @@ class PostController {
     public function add(Request $request, Response $response, array $args) {
         $post_data = $request->getParsedBody();
 
+        $requester = $request->getAttribute('jwt_payload');
+
         $post = new Post;
         $post->featured_image = 0;
         $this->apply($post, $post_data);
-        $post->author = 1;
+        $post->author = $requester['id'];
         $post->save();
 
         $r = $response
@@ -86,9 +88,14 @@ class PostController {
         $id = $args['id'];
         $post_data = $request->getParsedBody();
 
+        $requester = $request->getAttribute('jwt_payload');
+
         $post = Post::find($id);
         if ($post === null) {
             return $this->c->get('page404')($request, $response);
+        }
+        if ($post->author !== $requester['id']) {
+            return $response->withStatus(403);
         }
         $post->delete();
 
