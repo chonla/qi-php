@@ -25,6 +25,8 @@ services:
       - 9000
     volumes:
       - ./html:/var/www/html
+    links:
+      - mariadb
     environment:
       - JWT_SECRET=ThereIsNoAngelAboveButInOurHeart
   mariadb:
@@ -32,7 +34,6 @@ services:
     ports:
       - 3306:3306
     volumes:
-      # - database_data:/var/lib/mysql
       - ./docker/mariadb:/opt/data
     command: --init-file /opt/data/seed.sql
     environment:
