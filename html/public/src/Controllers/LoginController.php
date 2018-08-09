@@ -19,9 +19,6 @@ class LoginController {
         if (($user = $this->auth->login($login_data)) !== NULL) {
             $payload = [
                 'id' => $user->id, 
-                'display' => $user->display, 
-                'display_image' => $user->displayed_image,
-                'level' => $user->level,
             ];
             $token = $this->auth->generateToken($payload);
             return $response->withJson(['token' => $token]);

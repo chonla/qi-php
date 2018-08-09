@@ -2,7 +2,7 @@
 
 ## Precondition
 
-* [Login](../common/login.md)
+* [Login with admin account](../common/login-with-admin.md)
 
 ## GET /users/1
 

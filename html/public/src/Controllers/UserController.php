@@ -94,7 +94,7 @@ class UserController {
         if ($user === null) {
             return $this->c->get('page404')($request, $response);
         }
-        $this->password_apply($user, $user_data);
+        $this->applyPartially($user, $user_data);
         $user->save();
 
         $r = $response->withStatus(200);
@@ -111,7 +111,7 @@ class UserController {
         }
     }
 
-    private function password_apply(User $user, array $data) {
+    private function applyPartially(User $user, array $data) {
         if (array_key_exists('pwd', $data)) {
             $this->auth = $this->c->get('auth');
             $user->pwd = $this->auth->generateHash(filter_var($data['pwd'], FILTER_SANITIZE_STRING));

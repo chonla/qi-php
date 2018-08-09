@@ -10,4 +10,8 @@ class User extends Model {
 
     const USER = 0;
     const ADMIN = 99;
+
+    public function isAdmin() {
+        return $this->level == User::ADMIN;
+    }
 }

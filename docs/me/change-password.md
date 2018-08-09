@@ -4,7 +4,7 @@ As an owner of my account, I should be able to change my own password.
 
 ## Precondition
 
-* [Login](../common/login.md)
+* [Login with admin account](../common/login-with-admin.md)
 
 ## PATCH /me/password
 

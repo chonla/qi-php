@@ -7,11 +7,11 @@ use \Qi\Models\User as User;
 
 class AdminOnly {
     public function __invoke(Request $request, Response $response, callable $next) {
-        $requester = $request->getAttribute('jwt_payload');
-        if ($requester['level'] !== User::ADMIN) {
-            return $response->withStatus(403);
+        $payload = $request->getAttribute('jwt_payload');
+        $requester = $payload['requester'];
+        if ($requester->isAdmin()) {
+            return $next($request, $response);
         }
-
-        return $next($request, $response);
+        return $response->withStatus(403);
     }
 }

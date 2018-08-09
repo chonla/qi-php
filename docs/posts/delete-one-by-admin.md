@@ -2,9 +2,9 @@
 
 ## Precondition
 
-* [Login with User 1 Account](../common/login-by-user-1.md)
+* [Login with User 1 Account](../common/login-with-user-1.md)
 * [Create New Post](../common/create-new-post.md)
-* [Login with Admin Account](../common/login-by-admin.md)
+* [Login with Admin Account](../common/login-with-admin.md)
 
 ## DELETE {new-post-uri}
 

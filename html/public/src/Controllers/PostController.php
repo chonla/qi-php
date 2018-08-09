@@ -39,14 +39,15 @@ class PostController {
     }
 
     public function add(Request $request, Response $response, array $args) {
-        $post_data = $request->getParsedBody();
+        $payload = $request->getAttribute('jwt_payload');
+        $requester = $payload['requester'];
 
-        $requester = $request->getAttribute('jwt_payload');
+        $post_data = $request->getParsedBody();
 
         $post = new Post;
         $post->featured_image = 0;
         $this->apply($post, $post_data);
-        $post->author = $requester['id'];
+        $post->author = $requester->id;
         $post->save();
 
         $r = $response
@@ -78,7 +79,7 @@ class PostController {
         if ($post === null) {
             return $this->c->get('page404')($request, $response);
         }
-        $this->partial_apply($post, $post_data);
+        $this->applyPartially($post, $post_data);
         $post->save();
 
         $r = $response->withStatus(200);
@@ -86,16 +87,17 @@ class PostController {
     }
 
     public function delete(Request $request, Response $response, array $args) {
+        $payload = $request->getAttribute('jwt_payload');
+        $requester = $payload['requester'];
+
         $id = $args['id'];
         $post_data = $request->getParsedBody();
-
-        $requester = $request->getAttribute('jwt_payload');
 
         $post = Post::find($id);
         if ($post === null) {
             return $this->c->get('page404')($request, $response);
         }
-        if ($post->author !== $requester['id'] && $requester['level'] !== User::ADMIN) {
+        if ($post->author !== $requester->id && $requester['level'] !== User::ADMIN) {
             return $response->withStatus(403);
         }
         $post->delete();
@@ -112,7 +114,7 @@ class PostController {
         }
     }
 
-    private function partial_apply(Post $post, array $data) {
+    private function applyPartially(Post $post, array $data) {
         if (array_key_exists('title', $data)) {
             $post->title = filter_var($data['title'], FILTER_SANITIZE_STRING);
         }

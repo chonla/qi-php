@@ -2,7 +2,7 @@
 
 ## Precondition
 
-* [Login as a user](../common/login-by-user-1.md)
+* [Login as a user](../common/login-with-user-1.md)
 
 ## POST /posts
 

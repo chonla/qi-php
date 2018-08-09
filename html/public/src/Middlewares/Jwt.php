@@ -3,6 +3,7 @@ namespace Qi\Middlewares;
 
 use \Psr\Http\Message\ServerRequestInterface as Request;
 use \Psr\Http\Message\ResponseInterface as Response;
+use \Qi\Models\User as User;
 
 class Jwt {
     private $c;
@@ -32,6 +33,7 @@ class Jwt {
                     $payload['scope'] = [];
                 }
                 $payload['scope'] = array_merge($payload['scope'], $public_scope);
+                $payload['requester'] = User::Find($payload['id']);
                 return $request->withAttribute('jwt_payload', $payload);
             }
         ]);
