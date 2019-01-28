@@ -1,4 +1,4 @@
-html/vendor/
-html/composer.lock
-caddy/cert/
-mysql/data/
+/docker/html/vendor/
+/docker/html/composer.lock
+/docker/caddy/cert/
+/docker/mysql/data/
