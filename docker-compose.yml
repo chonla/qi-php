@@ -1,6 +1,6 @@
 # Source from https://www.masterzendframework.com/docker-development-environment/
 ---
-version: '2'
+version: '3.7'
 
 volumes:
   database_data:
@@ -10,32 +10,34 @@ services:
   caddy:
     image: abiosoft/caddy:php
     ports:
-      - 8080:80
-      - 8443:443
+      - "80:80"
+      - "443:443"
     volumes:
       - ./docker/caddy/Caddyfile:/etc/Caddyfile
+      - ./docker/caddy/cert:/etc/caddycerts
     links:
-      - php
-    volumes_from:
       - php
     restart: always
+    environment:
+      - CADDYPATH=/etc/caddycerts
   php:
     build: ./docker/php/
-    expose:
-      - 9000
+    ports:
+      - "8080:80"
     volumes:
-      - ./html:/var/www/html
+      - ./docker/php/html:/var/www/html
     links:
-      - mariadb
+      - mysql
     environment:
       - JWT_SECRET=ThereIsNoAngelAboveButInOurHeart
-  mariadb:
-    image: mariadb:latest
+  mysql:
+    image: mysql:5.7
+    restart: always
     ports:
-      - 3306:3306
+      - "3306:3306"
     volumes:
-      - ./docker/mariadb:/opt/data
-    command: --init-file /opt/data/seed.sql
+      - ./docker/mysql/data:/var/lib/mysql
+      - ./docker/mysql/seed.sql:/docker-entrypoint-initdb.d/seed.sql
     environment:
       - MYSQL_ROOT_PASSWORD=qi1234
       - MYSQL_DATABASE=qidb

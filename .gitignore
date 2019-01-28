@@ -1,2 +1,4 @@
 html/vendor/
 html/composer.lock
+caddy/cert/
+mysql/data/
