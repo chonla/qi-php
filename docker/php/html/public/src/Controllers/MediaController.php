@@ -21,17 +21,7 @@ class MediaController {
         $payload = $request->getAttribute('jwt_payload');
         $requester = $payload['requester'];
 
-        $media_data = $request->getBody();
-
-        $filename = $this->uploader->upload($media_data);
-
-        echo $filename;
-
-
-        // $media = new Media;
-        // $this->apply($media, $media_data);
-        // $media->author = $requester->id;
-        // $media->save();
+        $media = $this->uploader->directUpload($request, $requester->id);
 
         $r = $response
             ->withHeader('Location', sprintf('/media/%d', $media->id))

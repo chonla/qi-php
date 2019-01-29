@@ -22,15 +22,15 @@ INSERT INTO qidb.users (display, login, pwd, created_at, updated_at, displayed_i
 	VALUES ('User 2', 'user2', CONCAT('1234567890abcdef1234567890abcdef.', SHA2('1234567890abcdef1234567890abcdefuser2', 256)), NOW(), NOW(), 0, 0);
 
 CREATE TABLE qidb.posts
-	(
-		id INTEGER UNSIGNED UNIQUE AUTO_INCREMENT,
-		title varchar (400) NULL,
-		body TEXT NULL,
-		author INTEGER UNSIGNED NULL,
-		featured_image INTEGER UNSIGNED NULL,
-		created_at DATETIME NULL,
-		updated_at DATETIME NULL,
-		PRIMARY KEY (id)
+(
+	id INTEGER UNSIGNED UNIQUE AUTO_INCREMENT,
+	title varchar (400) NULL,
+	body TEXT NULL,
+	author INTEGER UNSIGNED NULL,
+	featured_image INTEGER UNSIGNED NULL,
+	created_at DATETIME NULL,
+	updated_at DATETIME NULL,
+	PRIMARY KEY (id)
 )
 ENGINE=InnoDB
 DEFAULT CHARSET=utf8
@@ -53,3 +53,17 @@ INSERT INTO qidb.posts (title, body, author, featured_image, created_at, updated
 	('Back to the Jurassic Park', 'Sorry, I am lost.', 1, 0, NOW(), NOW()),
 	('Lost in space', 'That is the NetFlix\'s movie.', 1, 0, NOW(), NOW()),
 	('Walking Dead', 'Let it go.', 1, 0, NOW(), NOW());
+
+CREATE TABLE qidb.media
+(
+	id INTEGER UNSIGNED UNIQUE AUTO_INCREMENT,
+	filename varchar (400) NULL,
+	mimetype varchar (50) NULL,
+	author INTEGER UNSIGNED NULL,
+	created_at DATETIME NULL,
+	updated_at DATETIME NULL,
+	PRIMARY KEY (id)
+)
+ENGINE=InnoDB
+DEFAULT CHARSET=utf8
+COLLATE=utf8_general_ci;
