@@ -28,7 +28,7 @@ Administrative level is required.
 
 ### Media
 
-* [Upload a photo](photos/create-one.md)
+* [Upload a media file](media/create-one.md)
 
 # How To Run Test
 
