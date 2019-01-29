@@ -1,4 +1,5 @@
 /docker/php/html/vendor/
+/docker/php/html/upload/
 /docker/php/html/composer.lock
 /docker/caddy/cert/
 /docker/mysql/data/

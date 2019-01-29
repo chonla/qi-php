@@ -1,4 +1,5 @@
 <?php
+
 $container = $app->getContainer();
 
 $container['page404'] = function ($container) {
@@ -34,4 +35,19 @@ $container['paginator'] = function ($container) {
 $container['posts'] = function ($container) {
     $posts = new \Qi\Pageables\Posts;
     return $posts;
+};
+
+$container['media'] = function ($container) {
+    $media = new \Qi\Pageables\Media;
+    return $media;
+};
+
+$container['file'] = function ($container) {
+    $file = new \Qi\Services\File($container);
+    return $file;
+};
+
+$container['randomizer'] = function ($container) {
+    $rand = new \Chonla\Randomizr\Randomizr;
+    return $rand;
 };

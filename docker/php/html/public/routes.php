@@ -15,6 +15,12 @@ $app->group('/posts', function () {
     });
 });
 
+$app->group('/media', function() {
+    $this->group('', function() {
+        $this->post('', '\Qi\Controllers\MediaController:add')->add('jwt');
+    });
+});
+
 $app->group('/me', function() {
     $this->patch('/password', '\Qi\Controllers\MeController:updatePassword');
 })->add('jwt');
