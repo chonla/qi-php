@@ -29,6 +29,7 @@ Administrative level is required.
 ### Media
 
 * [Upload a media file](media/create-one.md)
+* [Get a media file](media/get-one.md)
 
 # How To Run Test
 
