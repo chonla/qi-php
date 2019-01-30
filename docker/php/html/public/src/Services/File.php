@@ -16,7 +16,7 @@ class File {
         $this->rand = $c->get('randomizer');
     }
 
-    public function directUpload(Request $request, $author): Media {
+    public function directUpload(Request $request, string $author): Media {
         $media_data = $request->getBody();
         $mimetype = $request->getHeaderLine('Content-Type');
 
@@ -31,11 +31,22 @@ class File {
         return $media;
     }
 
-    private function saveFile(Stream $fileStream): string {
-        $uploadPath = $this->c->get('settings')['uploadPath'];
-        if (is_dir($uploadPath)) {
+    public function getUploadedFilePath($filename) {
+        $uploadPath = getenv("UPLOAD_PATH");
+        $targetFilename = sprintf("%s/%s", $uploadPath, $filename);
+        return $targetFilename;
+    }
+
+    private function prepareUploadPath(): string {
+        $uploadPath = getenv("UPLOAD_PATH");
+        if (!is_dir($uploadPath)) {
             @mkdir($uploadPath, 0755, true);
         }
+        return $uploadPath;
+    }
+
+    private function saveFile(Stream $fileStream): string {
+        $uploadPath = $this->prepareUploadPath();
 
         $filename = $this->rand->hexadecimal(32);
         $targetFilename = sprintf("%s/%s", $uploadPath, $filename);

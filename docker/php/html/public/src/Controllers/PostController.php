@@ -91,7 +91,6 @@ class PostController {
         $requester = $payload['requester'];
 
         $id = $args['id'];
-        $post_data = $request->getParsedBody();
 
         $post = Post::find($id);
         if ($post === null) {

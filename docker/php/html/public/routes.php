@@ -19,6 +19,12 @@ $app->group('/media', function() {
     $this->group('', function() {
         $this->post('', '\Qi\Controllers\MediaController:add')->add('jwt');
     });
+    $this->group('/{id:[0-9]+}', function() {
+        $this->get('', '\Qi\Controllers\MediaController:one');
+        $this->group('', function() {
+            $this->delete('', '\Qi\Controllers\MediaController:delete');
+        })->add('jwt');
+    });
 });
 
 $app->group('/me', function() {

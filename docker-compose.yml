@@ -30,6 +30,7 @@ services:
       - mysql
     environment:
       - JWT_SECRET=ThereIsNoAngelAboveButInOurHeart
+      - UPLOAD_PATH=/var/www/html/upload
   mysql:
     image: mysql:5.7
     restart: always

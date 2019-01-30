@@ -18,7 +18,6 @@ return [
         'pagination' => [
             'size' => 10,
         ],
-        'uploadPath' => dirname(__DIR__).'/upload',
         'public_scope' => ['posts.get'],
     ],
 ];
