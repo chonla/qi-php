@@ -31,6 +31,10 @@ Administrative level is required.
 * [Upload a media file](media/create-one.md)
 * [Get a media file](media/get-one.md)
 
+### Photo
+
+* [Upload photos to form](media/upload-bulk.md)
+
 # How To Run Test
 
 Most of document in /docs directory are executable by [cotton](https://github.com/chonla/cotton).

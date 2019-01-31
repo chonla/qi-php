@@ -33,11 +33,26 @@ class MediaController {
         return $r;
     }
 
-    public function add(Request $request, Response $response, array $args) {
+    public function upload(Request $request, Response $response, array $args) {
         $payload = $request->getAttribute('jwt_payload');
         $requester = $payload['requester'];
 
-        $uploadMethod = $request->getQueryParam('method');
+        $media = $this->uploader->bulkUpload($request, '1', 'photo');
+
+        if (count($media) > 0) {
+            $r = $response
+                ->withStatus(201)
+                ->withJson($media);
+            return $r;
+        }
+        $r = $response
+            ->withStatus(400);
+        return $r;
+    }
+
+    public function add(Request $request, Response $response, array $args) {
+        $payload = $request->getAttribute('jwt_payload');
+        $requester = $payload['requester'];
 
         $media = $this->uploader->directUpload($request, $requester->id);
 
