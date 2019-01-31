@@ -82,11 +82,22 @@ class File {
             $media = new Media();
             $media->filename = $filename;
             $media->mimetype = $file->getClientMediaType();
+            if ($media->mimetype === 'application/octet-stream') {
+                $media->mimetype = $this->detectMimeTypeFromFilename($targetFilename);
+            }
             $media->author = $author;
             $media->save();
 
             return $media;
         }
         return NULL;
+    }
+
+    private function detectMimeTypeFromFilename(string $filename): string {
+        $type = mime_content_type($filename);
+        if ($type === NULL) {
+            return 'application/octet-stream';
+        }
+        return $type;
     }
 }

@@ -18,7 +18,7 @@ $app->group('/posts', function () {
 $app->group('/media', function() {
     $this->group('', function() {
         $this->post('', '\Qi\Controllers\MediaController:add')->add('jwt');
-        $this->post('/bulk', '\Qi\Controllers\MediaController:upload');
+        $this->post('/photo', '\Qi\Controllers\MediaController:upload');
     });
     $this->group('/{id:[0-9]+}', function() {
         $this->get('', '\Qi\Controllers\MediaController:one');
