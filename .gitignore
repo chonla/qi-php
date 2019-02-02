@@ -4,3 +4,4 @@
 /docker/caddy/cert/
 /docker/mysql/data/
 .DS_Store
+/docker/caddy/html/node_modules/
