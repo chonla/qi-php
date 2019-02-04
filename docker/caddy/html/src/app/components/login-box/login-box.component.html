@@ -1,0 +1,33 @@
+<div class="card">
+  <div class="card-image">
+    <img src="/assets/img/login-card.jpg">
+  </div>
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" novalidate>
+    <div class="card-body">
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text">
+            <fa-icon [icon]="faUser" class="fa-fw"></fa-icon>
+          </span>
+        </div>
+        <input id="input-username" type="text" formControlName="login" class="form-control" placeholder="อีเมล" aria-label="Username"
+          aria-describedby="basic-addon1" [readOnly]="locked">
+      </div>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text">
+            <fa-icon [icon]="faKey" class="fa-fw"></fa-icon>
+          </span>
+        </div>
+        <input id="input-password" type="password" formControlName="pwd" class="form-control" placeholder="รหัสผ่าน" aria-label="Password"
+          aria-describedby="basic-addon1" [readOnly]="locked">
+      </div>
+
+      <app-error-alert #errorModal></app-error-alert>
+    </div>
+    <div class="card-footer">
+      <button id="button-register" type="button" class="btn btn-link" (click)="createLogin()">สร้างล็อกอินใหม่</button>
+      <button id="button-login" type="submit" class="btn btn-primary float-right" [disabled]="locked">ล็อกอิน</button>
+    </div>
+  </form>
+</div>

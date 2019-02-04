@@ -4,7 +4,8 @@
         "illuminate/database": "^5.0",
         "tuupola/slim-jwt-auth": "^3.0",
         "chonla/randomizr": "0.1.1",
-        "guzzlehttp/psr7": "^1.5"
+        "guzzlehttp/psr7": "^1.5",
+        "dflydev/fig-cookies": "^2.0"
     },
     "autoload": {
         "psr-4": {

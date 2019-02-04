@@ -1,1 +1,131 @@
-/* You can add global styles to this file, and also import other style files */
+html,
+body {
+  font-size: 0.9rem;
+}
+
+.full-page-component {
+  height: 100vh;
+  padding-top: 40px;
+}
+
+.page-content {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.page-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #343a40;
+}
+
+.section-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 15px;
+  color: #343a40;
+}
+
+.card {
+  .card-image {
+    height: 60%;
+    position: relative;
+    overflow: hidden;
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-top: -30px;
+    border-radius: 6px;
+    box-shadow: 0px 4px 1px -2px rgba(0,0,0,0.4);
+    img {
+      width: 100%;
+      height: 100%;
+      border-radius: 6px;
+      pointer-events: none;
+    }
+  }
+  img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+/* Colors override */
+
+.btn-primary {
+  background-color: #005B87;
+  border-color: #004668;
+}
+
+.btn-primary:hover {
+  background-color: #004668;
+  border-color: #001B28;
+}
+
+.btn-link {
+  color: #005B87;
+}
+
+.btn-link:hover {
+  color: #001B28;
+}
+
+.ql-container {
+  font-size: 16px;
+}
+
+/* Font size override */
+
+.label-primary {
+  font-size: 1.2em;
+}
+
+/* New defined components */
+
+.tag-secondary {
+  color: #fff;
+  background-color: #6c757d;
+}
+
+.tag {
+  display: inline-block;
+  padding: .25em .4em;
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: .25rem;
+}
+
+.tags-list {
+  margin: 0px;
+  padding: 0px;
+}
+
+.tags-list li {
+  list-style-type: none;
+  float: left;
+}
+
+.tags-list li:not(:first-child) {
+  margin-left: 4px;
+}
+
+/* Style override */
+
+.bootstrap.ng2-tag-input {
+  border-bottom: none !important;
+}
+
+.bootstrap tag {
+  background-color: #005B87 !important;
+}
+
+.fa-15 {
+  font-size: 1.5em;
+}
+
+button.close {
+  border: none;
+  background-color: transparent;
+}

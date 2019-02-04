@@ -18,6 +18,8 @@ return [
         'pagination' => [
             'size' => 10,
         ],
-        'public_scope' => ['posts.get'],
+        'jwt' => [
+            'age' => '1 day',
+        ]
     ],
 ];

@@ -15,24 +15,21 @@ class Jwt {
     public function get() {
         $public_scope = $this->c->get('settings')['public_scope'];
         return new \Tuupola\Middleware\JwtAuthentication([
-            "path" => "/",
-            "ignore" => ["/login"],
-            "relaxed" => ["localhost", "127.0.0.1"],
-            "attribute" => "jwt_payload",
-            "secret" => getenv("JWT_SECRET"),
-            "error" => function ($response, $arguments) {
-                $data["status"] = "error";
-                $data["message"] = $arguments["message"];
+            'cookie' => 'token',
+            'path' => '/',
+            'ignore' => ['/login'],
+            'relaxed' => ['localhost', '127.0.0.1'],
+            'attribute' => 'jwt_payload',
+            'secret' => getenv('JWT_SECRET'),
+            'error' => function ($response, $arguments) {
+                $data['status'] = 'error';
+                $data['message'] = $arguments['message'];
                 return $response
-                    ->withHeader("Content-Type", "application/json")
+                    ->withHeader('Content-Type', 'application/json')
                     ->write(json_encode($data, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT));
             },
-            "before" => function ($request, $arguments) use($public_scope) {
+            'before' => function ($request, $arguments) use($public_scope) {
                 $payload = $request->getAttribute('jwt_payload');
-                if (!array_key_exists('scope', $payload)) {
-                    $payload['scope'] = [];
-                }
-                $payload['scope'] = array_merge($payload['scope'], $public_scope);
                 $payload['requester'] = User::Find($payload['id']);
                 return $request->withAttribute('jwt_payload', $payload);
             }
