@@ -23,7 +23,7 @@ export class AuthService {
 
   checkIn(result: AuthResult) {
     this.bucket.set('token', result.token, result.expiresAt);
-    this.router.navigate(['/dashboard']);
+    this.router.navigate(['/admin']);
   }
 
   login(credential): Observable<AuthResult> {

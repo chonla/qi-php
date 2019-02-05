@@ -1,0 +1,36 @@
+<nav class="col-md-2 d-none d-md-block bg-dark sidebar">
+  <div class="sidebar-sticky">
+    <div class="navbar-brand col-sm-3 col-md-2 mr-0 bg-dark"><app-qi-logo></app-qi-logo></div>
+    <ul class="nav flex-column">
+      <li class="nav-item">
+        <a id="menu-dashboard" class="nav-link" routerLink="/admin" routerLinkActive="active" [routerLinkActiveOptions]="{exact:
+true}">
+          <fa-icon [icon]="faTachometerAlt" [fixedWidth]="true"></fa-icon>
+          Dashboard
+        </a>
+      </li>
+      <li class="nav-item">
+        <a id="menu-post" class="nav-link" routerLink="/admin/posts" routerLinkActive="active" [routerLinkActiveOptions]="{exact:
+true}" #postMenu="routerLinkActive">
+          <fa-icon [icon]="faThumbtack" [fixedWidth]="true"></fa-icon>
+          Posts
+        </a>
+      </li>
+      <li class="nav-item sub" *ngIf="postMenu.isActive">
+        <a class="nav-link" routerLink="/admin/posts" routerLinkActive="active" [routerLinkActiveOptions]="{exact:
+true}">All Posts</a>
+      </li>
+      <li class="nav-item sub" *ngIf="postMenu.isActive">
+        <a class="nav-link" routerLink="/admin/posts/new" routerLinkActive="active" [routerLinkActiveOptions]="{exact:
+true}">Add New</a>
+      </li>
+      <li class="nav-item">
+        <a id="menu-category" class="nav-link" routerLink="/admin/tags" routerLinkActive="active" [routerLinkActiveOptions]="{exact:
+true}">
+          <fa-icon [icon]="faTags" [fixedWidth]="true"></fa-icon>
+          Tags
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>

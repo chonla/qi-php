@@ -11,6 +11,12 @@ import { LoginBoxComponent } from './components/login-box/login-box.component';
 import { ErrorAlertComponent } from './components/error-alert/error-alert.component';
 import { DashboardPageComponent } from './components/dashboard-page/dashboard-page.component';
 import { NgxLocalStorageModule } from 'ngx-localstorage';
+import { DefaultLayoutComponent } from './components/default-layout/default-layout.component';
+import { AppChildRoutingModule } from './app-child-routing.module';
+import { SideMenuComponent } from './components/side-menu/side-menu.component';
+import { PostsPageComponent } from './components/posts-page/posts-page.component';
+import { TagsPageComponent } from './components/tags-page/tags-page.component';
+import { QiLogoComponent } from './components/qi-logo/qi-logo.component';
 
 @NgModule({
   declarations: [
@@ -18,11 +24,17 @@ import { NgxLocalStorageModule } from 'ngx-localstorage';
     LoginPageComponent,
     LoginBoxComponent,
     ErrorAlertComponent,
-    DashboardPageComponent
+    DashboardPageComponent,
+    DefaultLayoutComponent,
+    SideMenuComponent,
+    PostsPageComponent,
+    TagsPageComponent,
+    QiLogoComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    AppChildRoutingModule,
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
