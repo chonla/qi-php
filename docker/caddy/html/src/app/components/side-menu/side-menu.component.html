@@ -5,14 +5,14 @@
       <li class="nav-item">
         <a id="menu-dashboard" class="nav-link" routerLink="/admin" routerLinkActive="active" [routerLinkActiveOptions]="{exact:
 true}">
-          <fa-icon [icon]="faTachometerAlt" [fixedWidth]="true"></fa-icon>
+          <fa-icon [icon]="faTachometerAlt" [fixedWidth]="true" class="bullet-icon"></fa-icon>
           Dashboard
         </a>
       </li>
       <li class="nav-item">
         <a id="menu-post" class="nav-link" routerLink="/admin/posts" routerLinkActive="active" [routerLinkActiveOptions]="{exact:
 true}" #postMenu="routerLinkActive">
-          <fa-icon [icon]="faThumbtack" [fixedWidth]="true"></fa-icon>
+          <fa-icon [icon]="faThumbtack" [fixedWidth]="true" class="bullet-icon"></fa-icon>
           Posts
         </a>
       </li>
@@ -27,7 +27,7 @@ true}">Add New</a>
       <li class="nav-item">
         <a id="menu-category" class="nav-link" routerLink="/admin/tags" routerLinkActive="active" [routerLinkActiveOptions]="{exact:
 true}">
-          <fa-icon [icon]="faTags" [fixedWidth]="true"></fa-icon>
+          <fa-icon [icon]="faTags" [fixedWidth]="true" class="bullet-icon"></fa-icon>
           Tags
         </a>
       </li>

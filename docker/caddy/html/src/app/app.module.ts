@@ -17,6 +17,7 @@ import { SideMenuComponent } from './components/side-menu/side-menu.component';
 import { PostsPageComponent } from './components/posts-page/posts-page.component';
 import { TagsPageComponent } from './components/tags-page/tags-page.component';
 import { QiLogoComponent } from './components/qi-logo/qi-logo.component';
+import { GlanceBoxComponent } from './components/glance-box/glance-box.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { QiLogoComponent } from './components/qi-logo/qi-logo.component';
     SideMenuComponent,
     PostsPageComponent,
     TagsPageComponent,
-    QiLogoComponent
+    QiLogoComponent,
+    GlanceBoxComponent
   ],
   imports: [
     BrowserModule,
