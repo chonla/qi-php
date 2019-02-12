@@ -29,10 +29,12 @@
             "styles": [
               "./node_modules/bootstrap/dist/css/bootstrap.min.css",
               "./node_modules/ngx-bootstrap/datepicker/bs-datepicker.css",
-              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "src/assets/css/quill.bubble-extended.css",
               "src/styles.scss"
             ],
-            "scripts": [],
+            "scripts": [
+              "node_modules/quill/dist/quill.min.js"
+            ],
             "es5BrowserSupport": true
           },
           "configurations": {

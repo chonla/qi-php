@@ -1,0 +1,16 @@
+<div class="page-content">
+  <h1 class="page-title">Add New Post</h1>
+  <div class="row">
+    <div class="col-9 text-editor-container">
+      <form [formGroup]="postForm" novalidate class="form">
+        <div class="input-group input-group-lg mb-3">
+          <input type="text" class="form-control text-lg" formControlName="title" placeholder="Title goes here">
+        </div>
+        <quill-editor id="wysiwyg-new-post-body" placeholder="Content goes here"></quill-editor>
+      </form>
+    </div>
+    <div class="col-3">
+      <app-publish-box (submit)="formSubmit($event)" (draft)="formDraft($event)" (preview)="formPreview($event)"></app-publish-box>
+    </div>
+  </div>
+</div>

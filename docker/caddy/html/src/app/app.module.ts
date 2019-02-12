@@ -5,6 +5,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AlertModule } from 'ngx-bootstrap/alert';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
+import { QuillModule } from 'ngx-quill';
+
 import { AppComponent } from './app.component';
 import { LoginPageComponent } from './components/login-page/login-page.component';
 import { LoginBoxComponent } from './components/login-box/login-box.component';
@@ -18,6 +20,9 @@ import { PostsPageComponent } from './components/posts-page/posts-page.component
 import { TagsPageComponent } from './components/tags-page/tags-page.component';
 import { QiLogoComponent } from './components/qi-logo/qi-logo.component';
 import { GlanceBoxComponent } from './components/glance-box/glance-box.component';
+import { NewPostPageComponent } from './components/new-post-page/new-post-page.component';
+import { environment } from 'src/environments/environment';
+import { PublishBoxComponent } from './components/publish-box/publish-box.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +36,9 @@ import { GlanceBoxComponent } from './components/glance-box/glance-box.component
     PostsPageComponent,
     TagsPageComponent,
     QiLogoComponent,
-    GlanceBoxComponent
+    GlanceBoxComponent,
+    NewPostPageComponent,
+    PublishBoxComponent
   ],
   imports: [
     BrowserModule,
@@ -42,7 +49,8 @@ import { GlanceBoxComponent } from './components/glance-box/glance-box.component
     ReactiveFormsModule,
     NgxLocalStorageModule.forRoot(),
     FontAwesomeModule,
-    AlertModule.forRoot()
+    AlertModule.forRoot(),
+    QuillModule.forRoot(environment.editor)
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -12,8 +12,8 @@ body {
 .page-title {
   font-size: 1.5rem;
   font-weight: bold;
-  margin-bottom: 20px;
   color: #343a40;
+  margin-bottom: 1em;
 }
 
 .section-title {
@@ -56,6 +56,16 @@ body {
 .btn-primary:hover {
   background-color: #004668;
   border-color: #001B28;
+}
+
+.btn-nullified {
+  background-color: #f7f7f7;
+  border-color: #c0c0c0;
+}
+
+.btn-nullified:hover {
+  background-color: #c0c0c0;
+  border-color: #b0b0b0;
 }
 
 .btn-link {
