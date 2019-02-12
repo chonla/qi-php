@@ -6,11 +6,11 @@
         <div class="input-group input-group-lg mb-3">
           <input type="text" class="form-control text-lg" formControlName="title" placeholder="Title goes here">
         </div>
-        <quill-editor id="wysiwyg-new-post-body" placeholder="Content goes here"></quill-editor>
+        <quill-editor id="wysiwyg-new-post-body" placeholder="Content goes here" formControlName="body"></quill-editor>
       </form>
     </div>
     <div class="col-3">
-      <app-publish-box (submit)="formSubmit($event)" (draft)="formDraft($event)" (preview)="formPreview($event)"></app-publish-box>
+      <app-publish-box [status]="status" [disabled]="formLocked" (submit)="formSubmit($event)" (draft)="formDraft($event)" (preview)="formPreview($event)"></app-publish-box>
     </div>
   </div>
 </div>

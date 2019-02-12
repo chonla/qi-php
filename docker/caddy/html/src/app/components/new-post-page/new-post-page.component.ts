@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
+import { PostService } from 'src/app/services/post.service';
 
 @Component({
   selector: 'app-new-post-page',
@@ -9,17 +10,35 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 export class NewPostPageComponent implements OnInit {
 
   postForm: FormGroup;
+  formLocked: boolean;
+  status: string;
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, private ps: PostService) {
+    this.formLocked = false;
+  }
 
   ngOnInit() {
     this.postForm = this.fb.group({
-      title: ''
+      title: '',
+      body: ''
     });
   }
 
   formSubmit() {
-    console.log("submitted");
+    this.formLocked = true;
+    this.ps.create(this.postForm.value).subscribe({
+      next: result => {
+        this.postForm.setValue({
+          title: result.title,
+          body: result.body
+        });
+        this.status = result.status;
+        this.formLocked = false;
+      },
+      error: e => {
+        this.formLocked = false;
+      }
+    });
   }
 
   formDraft() {

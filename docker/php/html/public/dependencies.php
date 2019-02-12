@@ -37,6 +37,11 @@ $container['posts'] = function ($container) {
     return $posts;
 };
 
+$container['post-service'] = function ($container) {
+    $postService = new \Qi\Services\Post;
+    return $postService;
+};
+
 $container['media'] = function ($container) {
     $media = new \Qi\Pageables\Media;
     return $media;

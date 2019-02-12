@@ -27,7 +27,8 @@ CREATE TABLE qidb.posts
 	title varchar (400) NULL,
 	body TEXT NULL,
 	author INTEGER UNSIGNED NULL,
-	featured_image INTEGER UNSIGNED NULL,
+	status varchar (10) DEFAULT 'draft',
+	published_at DATETIME NULL,
 	created_at DATETIME NULL,
 	updated_at DATETIME NULL,
 	PRIMARY KEY (id)
@@ -36,23 +37,23 @@ ENGINE=InnoDB
 DEFAULT CHARSET=utf8
 COLLATE=utf8_general_ci;
 
-INSERT INTO qidb.posts (title, body, author, featured_image, created_at, updated_at) VALUES
-	('Sample Post', 'This is a sample post by user 1.', 2, 0, NOW(), NOW()),
-	('Sample Post 2', 'This is another sample.', 1, 0, NOW(), NOW()),
-	('Awesome Post', 'This is an awesome post.', 1, 0, NOW(), NOW()),
-	('Go for avengers', 'Ironman is missing posted by user 1.', 2, 0, NOW(), NOW()),
-	('Spiderman is just a young boy', 'I wish he will grow up someday.', 1, 0, NOW(), NOW()),
-	('Castlevana', 'Oh! you spell it wrong. Posted by user 2.', 3, 0, NOW(), NOW()),
-	('Master Chef', 'I have no idea about this.', 1, 0, NOW(), NOW()),
-	('Lorem ipsum', 'Rola Takizawa.', 1, 0, NOW(), NOW()),
-	('BNK48', 'Cherprang is the best.', 1, 0, NOW(), NOW()),
-	('Russia!', 'Soccer!', 3, 0, NOW(), NOW()),
-	('Nobody is here', 'So, who are you then?', 1, 0, NOW(), NOW()),
-	('Ok Google', 'Hi!! People', 1, 0, NOW(), NOW()),
-	('The Siri', 'Noooo....', 1, 0, NOW(), NOW()),
-	('Back to the Jurassic Park', 'Sorry, I am lost.', 1, 0, NOW(), NOW()),
-	('Lost in space', 'That is the NetFlix\'s movie.', 1, 0, NOW(), NOW()),
-	('Walking Dead', 'Let it go.', 1, 0, NOW(), NOW());
+INSERT INTO qidb.posts (title, body, author, status, published_at, created_at, updated_at) VALUES
+	('Sample Post', 'This is a sample post by user 1.', 2, 'published', NOW(), NOW(), NOW()),
+	('Sample Post 2', 'This is another sample.', 1, 'published', NOW(), NOW(), NOW()),
+	('Awesome Post', 'This is an awesome post.', 1, 'published', NOW(), NOW(), NOW()),
+	('Go for avengers', 'Ironman is missing posted by user 1.', 2, 'published', NOW(), NOW(), NOW()),
+	('Spiderman is just a young boy', 'I wish he will grow up someday.', 1, 'published', NOW(), NOW(), NOW()),
+	('Castlevana', 'Oh! you spell it wrong. Posted by user 2.', 3, 'published', NOW(), NOW(), NOW()),
+	('Master Chef', 'I have no idea about this.', 1, 'published', NOW(), NOW(), NOW()),
+	('Lorem ipsum', 'Rola Takizawa.', 1, 'published', NOW(), NOW(), NOW()),
+	('BNK48', 'Cherprang is the best.', 1, 'published', NOW(), NOW(), NOW()),
+	('Russia!', 'Soccer!', 3, 'published', NOW(), NOW(), NOW()),
+	('Nobody is here', 'So, who are you then?', 1, 'published', NOW(), NOW(), NOW()),
+	('Ok Google', 'Hi!! People', 1, 'published', NOW(), NOW(), NOW()),
+	('The Siri', 'Noooo....', 1, 'published', NOW(), NOW(), NOW()),
+	('Back to the Jurassic Park', 'Sorry, I am lost.', 1, 'published', NOW(), NOW(), NOW()),
+	('Lost in space', 'That is the NetFlix\'s movie.', 1, 'published', NOW(), NOW(), NOW()),
+	('Walking Dead', 'Let it go.', 1, 'published', NOW(), NOW(), NOW());
 
 CREATE TABLE qidb.media
 (

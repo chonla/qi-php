@@ -12,7 +12,8 @@
 | DATA.title | /.+/ |
 | DATA.body | /.+/ |
 | DATA.author | /\d+/ |
-| DATA.featured_image | 0 |
+| DATA.status | /^.+$/ |
+| DATA.published_at | /\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}/ |
 | DATA.created_at | /\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}/ |
 | DATA.updated_at | /\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}/ |
 

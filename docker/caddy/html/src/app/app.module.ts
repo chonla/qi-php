@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AlertModule } from 'ngx-bootstrap/alert';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { QuillModule } from 'ngx-quill';
 
@@ -23,6 +23,7 @@ import { GlanceBoxComponent } from './components/glance-box/glance-box.component
 import { NewPostPageComponent } from './components/new-post-page/new-post-page.component';
 import { environment } from 'src/environments/environment';
 import { PublishBoxComponent } from './components/publish-box/publish-box.component';
+import { AuthInterceptor } from './interceptors/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,11 @@ import { PublishBoxComponent } from './components/publish-box/publish-box.compon
     AlertModule.forRoot(),
     QuillModule.forRoot(environment.editor)
   ],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: AuthInterceptor,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
