@@ -1,27 +1,29 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { PostService } from 'src/app/services/post.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'app-new-post-page',
-  templateUrl: './new-post-page.component.html',
-  styleUrls: ['./new-post-page.component.scss']
+  selector: 'app-edit-post-page',
+  templateUrl: './edit-post-page.component.html',
+  styleUrls: ['./edit-post-page.component.scss']
 })
-export class NewPostPageComponent implements OnInit {
+export class EditPostPageComponent implements OnInit {
 
   postForm: FormGroup;
   formLocked: boolean;
   status: string;
 
-  constructor(private fb: FormBuilder, private ps: PostService, private router: Router) {
+  constructor(private fb: FormBuilder, private ps: PostService, private router: Router, private activatedRoute: ActivatedRoute) {
     this.formLocked = false;
   }
 
   ngOnInit() {
-    this.postForm = this.fb.group({
-      title: '',
-      body: ''
+    this.ps.get(this.activatedRoute.snapshot.paramMap.get('id')).subscribe(post => {
+      this.postForm = this.fb.group({
+        title: post.title,
+        body: post.body
+      });
     });
   }
 

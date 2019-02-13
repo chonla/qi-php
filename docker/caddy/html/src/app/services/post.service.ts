@@ -14,4 +14,12 @@ export class PostService {
   create(post: Post): Observable<Post> {
     return this.http.post<Post>(`${environment.baseUrl}/posts`, post);
   }
+
+  createDraft(post: Post): Observable<Post> {
+    return this.http.post<Post>(`${environment.baseUrl}/posts/draft`, post);
+  }
+
+  get(id: string): Observable<Post> {
+    return this.http.get<Post>(`${environment.baseUrl}/posts/${id}`);
+  }
 }

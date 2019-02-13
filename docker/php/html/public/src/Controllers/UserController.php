@@ -103,9 +103,9 @@ class UserController {
 
     private function apply(User $user, array $data) {
         $this->auth = $this->c->get('auth');
-        $user->login = filter_var($data['login'], FILTER_SANITIZE_STRING);
-        $user->pwd = $this->auth->generateHash(filter_var($data['pwd'], FILTER_SANITIZE_STRING));
-        $user->display = filter_var($data['display'], FILTER_SANITIZE_STRING);
+        $user->login = filter_var($data['login'], FILTER_UNSAFE_RAW);
+        $user->pwd = $this->auth->generateHash(filter_var($data['pwd'], FILTER_UNSAFE_RAW));
+        $user->display = filter_var($data['display'], FILTER_UNSAFE_RAW);
         if (array_key_exists('displayed_image', $data)) {
             $user->displayed_image = $data['displayed_image'];
         }
@@ -114,7 +114,7 @@ class UserController {
     private function applyPartially(User $user, array $data) {
         if (array_key_exists('pwd', $data)) {
             $this->auth = $this->c->get('auth');
-            $user->pwd = $this->auth->generateHash(filter_var($data['pwd'], FILTER_SANITIZE_STRING));
+            $user->pwd = $this->auth->generateHash(filter_var($data['pwd'], FILTER_UNSAFE_RAW));
         }
     }
 }

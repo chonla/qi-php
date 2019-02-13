@@ -5,6 +5,7 @@ $app->group('/posts', function () {
         $this->get('', '\Qi\Controllers\PostController:all');
         $this->post('', '\Qi\Controllers\PostController:add')->add('jwt');
     });
+    $this->post('/draft', '\Qi\Controllers\PostController:addAsDraft')->add('jwt');
     $this->group('/{id:[0-9]+}', function () {
         $this->get('', '\Qi\Controllers\PostController:one');
         $this->group('', function() {

@@ -24,6 +24,7 @@ import { NewPostPageComponent } from './components/new-post-page/new-post-page.c
 import { environment } from 'src/environments/environment';
 import { PublishBoxComponent } from './components/publish-box/publish-box.component';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
+import { EditPostPageComponent } from './components/edit-post-page/edit-post-page.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { AuthInterceptor } from './interceptors/auth.interceptor';
     QiLogoComponent,
     GlanceBoxComponent,
     NewPostPageComponent,
-    PublishBoxComponent
+    PublishBoxComponent,
+    EditPostPageComponent
   ],
   imports: [
     BrowserModule,

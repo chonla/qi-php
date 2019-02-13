@@ -1,8 +1,8 @@
 <div class="page-content">
-  <h1 class="page-title">Add New Post</h1>
+  <h1 class="page-title">Edit Post</h1>
   <div class="row">
     <div class="col-9 text-editor-container">
-      <form [formGroup]="postForm" novalidate class="form">
+      <form *ngIf="postForm" [formGroup]="postForm" novalidate class="form">
         <div class="card">
           <div class="card-body">
             <div class="input-group input-group-xlg mb-3">

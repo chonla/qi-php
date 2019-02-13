@@ -59,6 +59,26 @@ class PostController {
         return $r;
     }
 
+    public function addAsDraft(Request $request, Response $response, array $args) {
+        $payload = $request->getAttribute('jwt_payload');
+        $requester = $payload['requester'];
+
+        $post_data = $request->getParsedBody();
+
+        $post = new Post;
+        $this->apply($post, $post_data);
+        $post->author = $requester->id;
+        $post->save();
+
+        $post = $this->postService->draft($post);
+
+        $r = $response
+            ->withHeader('Location', sprintf('/posts/%d', $post->id))
+            ->withStatus(201)
+            ->withJson($post);
+        return $r;
+    }
+
     public function replace(Request $request, Response $response, array $args) {
         $id = $args['id'];
         $post_data = $request->getParsedBody();
@@ -109,16 +129,16 @@ class PostController {
     }
 
     private function apply(Post $post, array $data) {
-        $post->title = filter_var($data['title'], FILTER_SANITIZE_STRING);
-        $post->body = filter_var($data['body'], FILTER_SANITIZE_STRING);
+        $post->title = filter_var($data['title'], FILTER_UNSAFE_RAW);
+        $post->body = filter_var($data['body'], FILTER_UNSAFE_RAW);
     }
 
     private function applyPartially(Post $post, array $data) {
         if (array_key_exists('title', $data)) {
-            $post->title = filter_var($data['title'], FILTER_SANITIZE_STRING);
+            $post->title = filter_var($data['title'], FILTER_UNSAFE_RAW);
         }
         if (array_key_exists('body', $data)) {
-            $post->body = filter_var($data['body'], FILTER_SANITIZE_STRING);
+            $post->body = filter_var($data['body'], FILTER_UNSAFE_RAW);
         }
     }
 }

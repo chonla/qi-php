@@ -29,7 +29,7 @@ class MeController {
     private function applyPassword(User $user, array $data) {
         if (array_key_exists('pwd', $data)) {
             $this->auth = $this->c->get('auth');
-            $user->pwd = $this->auth->generateHash(filter_var($data['pwd'], FILTER_SANITIZE_STRING));
+            $user->pwd = $this->auth->generateHash(filter_var($data['pwd'], FILTER_UNSAFE_RAW));
         }
     }
 }

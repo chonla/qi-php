@@ -11,4 +11,12 @@ class Post {
 
         return $post;
     }
+
+    function draft(\Qi\Models\Post $post): \Qi\Models\Post {
+        $post->status = 'draft';
+
+        $post->save();
+
+        return $post;
+    }
 }

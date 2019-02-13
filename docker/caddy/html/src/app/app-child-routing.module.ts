@@ -7,6 +7,7 @@ import { AuthGuardService } from './guards/auth-guard.service';
 import { PostsPageComponent } from './components/posts-page/posts-page.component';
 import { TagsPageComponent } from './components/tags-page/tags-page.component';
 import { NewPostPageComponent } from './components/new-post-page/new-post-page.component';
+import { EditPostPageComponent } from './components/edit-post-page/edit-post-page.component';
 // import { DefaultLayoutComponent } from './components/default-layout/default-layout.component';
 // import { GalleryPageComponent } from './components/gallery-page/gallery-page.component';
 // import { AuthGuardService } from './services/auth-guard.service';
@@ -34,6 +35,11 @@ const routes: Routes = [
       {
         path: 'posts/new',
         component: NewPostPageComponent,
+        canActivate: [AuthGuardService]
+      },
+      {
+        path: 'posts/edit/:id',
+        component: EditPostPageComponent,
         canActivate: [AuthGuardService]
       },
       {

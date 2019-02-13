@@ -13,7 +13,8 @@ export const environment = {
       [{ 'header': 1 }, { 'header': 2 }],               // custom button values
       [{ 'list': 'ordered'}, { 'list': 'bullet' }],
     ],
-    theme: 'bubble'
+    theme: 'bubble',
+    sanitize: false
   }
 };
 

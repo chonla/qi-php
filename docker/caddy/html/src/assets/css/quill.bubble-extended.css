@@ -13,9 +13,9 @@
   position: relative;
   background: #fff;
   min-height: 550px;
-  border: 1px solid #e0e0e0;
-  border-radius: 0.25rem;
-  padding: 20px;
+  /* border: 1px solid #e0e0e0; */
+  /* border-radius: 0.25rem; */
+  /* padding: 20px; */
 }
 .ql-container.ql-disabled .ql-tooltip {
   visibility: hidden;
@@ -394,10 +394,10 @@
 .ql-editor.ql-blank::before {
   color: #6E757C;
   content: attr(data-placeholder);
-  left: 36px;
+  left: 15px;
   pointer-events: none;
   position: absolute;
-  right: 36px;
+  right: 15px;
 }
 .ql-bubble.ql-toolbar:after,
 .ql-bubble .ql-toolbar:after {

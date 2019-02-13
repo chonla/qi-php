@@ -145,3 +145,30 @@ button.close {
 .bullet-icon {
   margin-right: 0.25em;
 }
+
+.widget-box {
+  .card-header {
+    font-weight: bold;
+  }
+}
+
+.borderless {
+  border: none;
+  border-radius: 0 !important;
+}
+
+.input-group-xlg {
+  >.form-control {
+    padding: 2.25rem 1rem;
+    font-size: 2rem;
+    line-height: 2.75rem;
+  }
+}
+
+.no-highlight:focus {
+  color: #495057;
+  background-color: #fff;
+  border: none !important;
+  outline: 0;
+  box-shadow: none !important;
+}
