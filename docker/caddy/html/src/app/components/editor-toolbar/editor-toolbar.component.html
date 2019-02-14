@@ -1,0 +1,9 @@
+<div class="floating-editor-toolbar">
+  <div class="row">
+    <div class="col-9 text-right">
+      <button [disabled]="locked" class="btn btn-primary snap-top" (click)="onSubmit()"><fa-icon [icon]="faGlobe" [fixedWidth]="true"></fa-icon> Publish</button>
+      <button [disabled]="locked" class="btn btn-nullified snap-top ml-1" (click)="onSaveDraft()"><fa-icon [icon]="faStickyNote" [fixedWidth]="true"></fa-icon> Save Draft</button>
+      <button [disabled]="locked" class="btn btn-nullified snap-top ml-3" (click)="onPreview()"><fa-icon [icon]="faEye" [fixedWidth]="true"></fa-icon> Preview</button>
+    </div>
+  </div>
+</div>

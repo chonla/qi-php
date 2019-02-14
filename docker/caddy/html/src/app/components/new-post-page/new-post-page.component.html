@@ -6,15 +6,15 @@
         <div class="card">
           <div class="card-body">
             <div class="input-group input-group-xlg mb-3">
-              <input type="text" class="form-control text-xlg borderless no-highlight" formControlName="title" placeholder="Title goes here">
+              <input type="text" class="form-control text-xlg borderless no-highlight" formControlName="title" placeholder="Title...">
             </div>
-            <quill-editor id="wysiwyg-new-post-body" placeholder="Content goes here" formControlName="body"></quill-editor>
+            <quill-editor id="wysiwyg-new-post-body" placeholder="Write your content here..." formControlName="body"></quill-editor>
           </div>
         </div>
       </form>
     </div>
     <div class="col-3">
-      <app-publish-box [status]="status" [disabled]="formLocked" (submit)="publishPost($event)" (draft)="draftPost($event)" (preview)="formPreview($event)"></app-publish-box>
+      <app-post-info-box [status]="status"></app-post-info-box>
     </div>
   </div>
 </div>

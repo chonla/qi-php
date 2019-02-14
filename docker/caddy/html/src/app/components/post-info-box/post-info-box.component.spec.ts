@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PublishBoxComponent } from './publish-box.component';
+import { PostInfoBoxComponent } from './post-info-box.component';
 
-describe('PublishBoxComponent', () => {
-  let component: PublishBoxComponent;
-  let fixture: ComponentFixture<PublishBoxComponent>;
+describe('PostInfoBoxComponent', () => {
+  let component: PostInfoBoxComponent;
+  let fixture: ComponentFixture<PostInfoBoxComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PublishBoxComponent ]
+      declarations: [ PostInfoBoxComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PublishBoxComponent);
+    fixture = TestBed.createComponent(PostInfoBoxComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -21,9 +21,11 @@ export class EditPostPageComponent implements OnInit {
   ngOnInit() {
     this.ps.get(this.activatedRoute.snapshot.paramMap.get('id')).subscribe(post => {
       this.postForm = this.fb.group({
+        id: post.id,
         title: post.title,
         body: post.body
       });
+      this.status = post.status;
     });
   }
 
@@ -46,7 +48,7 @@ export class EditPostPageComponent implements OnInit {
 
   draftPost() {
     this.formLocked = true;
-    this.ps.createDraft(this.postForm.value).subscribe({
+    this.ps.updateDraft(this.postForm.value).subscribe({
       next: result => {
         this.router.navigate(['/admin','posts','edit',result.id]);
       },

@@ -22,9 +22,10 @@ import { QiLogoComponent } from './components/qi-logo/qi-logo.component';
 import { GlanceBoxComponent } from './components/glance-box/glance-box.component';
 import { NewPostPageComponent } from './components/new-post-page/new-post-page.component';
 import { environment } from 'src/environments/environment';
-import { PublishBoxComponent } from './components/publish-box/publish-box.component';
+import { PostInfoBoxComponent } from './components/post-info-box/post-info-box.component';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { EditPostPageComponent } from './components/edit-post-page/edit-post-page.component';
+import { EditorToolbarComponent } from './components/editor-toolbar/editor-toolbar.component';
 
 @NgModule({
   declarations: [
@@ -40,8 +41,9 @@ import { EditPostPageComponent } from './components/edit-post-page/edit-post-pag
     QiLogoComponent,
     GlanceBoxComponent,
     NewPostPageComponent,
-    PublishBoxComponent,
-    EditPostPageComponent
+    PostInfoBoxComponent,
+    EditPostPageComponent,
+    EditorToolbarComponent
   ],
   imports: [
     BrowserModule,

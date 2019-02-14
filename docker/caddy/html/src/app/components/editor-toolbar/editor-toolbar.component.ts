@@ -1,16 +1,17 @@
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
-import { faGlobe, faThumbtack } from '@fortawesome/free-solid-svg-icons';
+import { faGlobe, faEye, faStickyNote } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
-  selector: 'app-publish-box',
-  templateUrl: './publish-box.component.html',
-  styleUrls: ['./publish-box.component.scss']
+  selector: 'app-editor-toolbar',
+  templateUrl: './editor-toolbar.component.html',
+  styleUrls: ['./editor-toolbar.component.scss']
 })
-export class PublishBoxComponent implements OnInit {
-  faGlobe = faGlobe;
-  faThumbtack = faThumbtack;
+export class EditorToolbarComponent implements OnInit {
 
-  @Input('status') status: string;
+  faGlobe = faGlobe;
+  faEye = faEye;
+  faStickyNote = faStickyNote;
+
   @Input('disabled') locked: boolean;
   @Output() submit: EventEmitter<void> = new EventEmitter<void>();
   @Output() draft: EventEmitter<void> = new EventEmitter<void>();
@@ -34,4 +35,5 @@ export class PublishBoxComponent implements OnInit {
   onPreview() {
     this.preview.emit();
   }
+
 }

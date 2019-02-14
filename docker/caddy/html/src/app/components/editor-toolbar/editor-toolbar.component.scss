@@ -1,0 +1,10 @@
+.floating-editor-toolbar {
+  position: relative;
+  top: -15px;
+  margin-bottom: calc(-1.5rem - 15px);
+}
+
+.snap-top {
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+}
