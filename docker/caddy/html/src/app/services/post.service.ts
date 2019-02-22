@@ -19,8 +19,12 @@ export class PostService {
     return this.http.post<Post>(`${environment.baseUrl}/posts/draft`, post);
   }
 
-  updateDraft(post: Post): Observable<Post> {
-    return this.http.put<Post>(`${environment.baseUrl}/posts/${post.id}`, post);
+  saveDraft(post: Post): Observable<Post> {
+    return this.http.patch<Post>(`${environment.baseUrl}/posts/${post.id}/draft`, post);
+  }
+
+  publish(post: Post): Observable<Post> {
+    return this.http.patch<Post>(`${environment.baseUrl}/posts/${post.id}/publish`, post);
   }
 
   get(id: string): Observable<Post> {

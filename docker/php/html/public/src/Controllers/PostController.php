@@ -48,7 +48,6 @@ class PostController {
         $post = new Post;
         $this->apply($post, $post_data);
         $post->author = $requester->id;
-        $post->save();
 
         $post = $this->postService->publish($post);
 
@@ -68,7 +67,6 @@ class PostController {
         $post = new Post;
         $this->apply($post, $post_data);
         $post->author = $requester->id;
-        $post->save();
 
         $post = $this->postService->draft($post);
 
@@ -90,7 +88,9 @@ class PostController {
         $this->apply($post, $post_data);
         $post->save();
 
-        $r = $response->withStatus(200);
+        $r = $response
+            ->withStatus(200)
+            ->withJson($post);
         return $r;
     }
 
@@ -105,7 +105,45 @@ class PostController {
         $this->applyPartially($post, $post_data);
         $post->save();
 
-        $r = $response->withStatus(200);
+        $r = $response
+            ->withStatus(200)
+            ->withJson($post);
+        return $r;
+    }
+
+    public function saveAndPublish(Request $request, Response $response, array $args) {
+        $id = $args['id'];
+        $post_data = $request->getParsedBody();
+
+        $post = Post::find($id);
+        if ($post === null) {
+            return $this->c->get('page404')($request, $response);
+        }
+        $this->applyPartially($post, $post_data);
+
+        $post = $this->postService->publish($post);
+
+        $r = $response
+            ->withStatus(200)
+            ->withJson($post);
+        return $r;
+    }
+
+    public function saveAsDraft(Request $request, Response $response, array $args) {
+        $id = $args['id'];
+        $post_data = $request->getParsedBody();
+
+        $post = Post::find($id);
+        if ($post === null) {
+            return $this->c->get('page404')($request, $response);
+        }
+        $this->applyPartially($post, $post_data);
+
+        $post = $this->postService->draft($post);
+
+        $r = $response
+            ->withStatus(200)
+            ->withJson($post);
         return $r;
     }
 

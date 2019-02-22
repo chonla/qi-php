@@ -31,29 +31,34 @@ export class EditPostPageComponent implements OnInit {
 
   publishPost() {
     this.formLocked = true;
-    this.ps.create(this.postForm.value).subscribe({
+    this.postForm.disable();
+    this.ps.publish(this.postForm.value).subscribe({
       next: result => {
-        this.postForm.setValue({
-          title: result.title,
-          body: result.body
-        });
-        this.status = result.status;
+        console.log('publish', result);
+        this.router.navigate(['/admin','posts','edit',result.id]);
         this.formLocked = false;
+        this.postForm.enable();
       },
       error: e => {
         this.formLocked = false;
+        this.postForm.enable();
       }
     });
   }
 
   draftPost() {
     this.formLocked = true;
-    this.ps.updateDraft(this.postForm.value).subscribe({
+    this.postForm.disable();
+    this.ps.saveDraft(this.postForm.value).subscribe({
       next: result => {
+        console.log('draft', result);
         this.router.navigate(['/admin','posts','edit',result.id]);
+        this.formLocked = false;
+        this.postForm.enable();
       },
       error: e => {
         this.formLocked = false;
+        this.postForm.enable();
       }
     });
   }

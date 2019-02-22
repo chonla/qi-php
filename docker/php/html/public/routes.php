@@ -9,9 +9,11 @@ $app->group('/posts', function () {
     $this->group('/{id:[0-9]+}', function () {
         $this->get('', '\Qi\Controllers\PostController:one');
         $this->group('', function() {
-            $this->put('', '\Qi\Controllers\PostController:replace');
-            $this->patch('', '\Qi\Controllers\PostController:update');
+            // $this->put('', '\Qi\Controllers\PostController:replace');
+            // $this->patch('', '\Qi\Controllers\PostController:update');
             $this->delete('', '\Qi\Controllers\PostController:delete');
+            $this->patch('/publish', '\Qi\Controllers\PostController:saveAndPublish');
+            $this->patch('/draft', '\Qi\Controllers\PostController:saveAsDraft');
         })->add('jwt');
     });
 });

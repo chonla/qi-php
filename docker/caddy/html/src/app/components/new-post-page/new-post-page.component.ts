@@ -27,6 +27,7 @@ export class NewPostPageComponent implements OnInit {
 
   publishPost() {
     this.formLocked = true;
+    this.postForm.disable();
     this.ps.create(this.postForm.value).subscribe({
       next: result => {
         this.postForm.setValue({
@@ -35,6 +36,7 @@ export class NewPostPageComponent implements OnInit {
         });
         this.status = result.status;
         this.formLocked = false;
+        this.postForm.enable();
       },
       error: e => {
         this.formLocked = false;
@@ -44,12 +46,14 @@ export class NewPostPageComponent implements OnInit {
 
   draftPost() {
     this.formLocked = true;
+    this.postForm.disable();
     this.ps.createDraft(this.postForm.value).subscribe({
       next: result => {
         this.router.navigate(['/admin','posts','edit',result.id]);
       },
       error: e => {
         this.formLocked = false;
+        this.postForm.enable();
       }
     });
   }

@@ -37,11 +37,6 @@ $container['posts'] = function ($container) {
     return $posts;
 };
 
-$container['post-service'] = function ($container) {
-    $postService = new \Qi\Services\Post;
-    return $postService;
-};
-
 $container['media'] = function ($container) {
     $media = new \Qi\Pageables\Media;
     return $media;
@@ -56,3 +51,14 @@ $container['randomizer'] = function ($container) {
     $rand = new \Chonla\Randomizr\Randomizr;
     return $rand;
 };
+
+$container['post-service'] = function ($container) {
+    $postService = new \Qi\Services\Post($container);
+    return $postService;
+};
+
+$container['slug-service'] = function ($container) {
+    $slugService = new \Qi\Services\Slug($container);
+    return $slugService;
+};
+
