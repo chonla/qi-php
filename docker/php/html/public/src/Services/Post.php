@@ -36,7 +36,8 @@ class Post {
         $this->setSlugIfNotPresent($post);
 
         if ($post->status === 'published') {
-            $post->id = 0; // create a fresh copy if creating draft on published post
+            $newPost = $post->replicate(['id']); // create a fresh copy if creating draft on published post
+            $post = $newPost;
         }
 
         $post->status = 'draft';

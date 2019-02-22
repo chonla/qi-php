@@ -20,3 +20,4 @@
 | Name | Value |
 | - | - |
 | new-post-uri | Header.Location |
+| new-post-slug | Data.slug |

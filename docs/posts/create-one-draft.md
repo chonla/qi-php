@@ -25,6 +25,7 @@
 | - | - |
 | StatusCode | 201 |
 | Data.status | draft |
+| Data.slug | /^.+$/ |
 
 ## Capture
 

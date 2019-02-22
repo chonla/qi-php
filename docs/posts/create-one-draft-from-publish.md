@@ -1,11 +1,11 @@
-# Update a post
+# Create a new draft from previous published copy
 
 ## Precondition
 
 * [Login as a user](../common/login-with-user-1.md)
 * [Create New Post](../common/create-new-post.md)
 
-## PATCH {new-post-uri}/publish
+## PATCH {new-post-uri}/draft
 
 | Header | Value |
 | - | - |
@@ -14,8 +14,9 @@
 
 ```
 {
-    "title": "Updated title again",
-    "body": "Updated body"
+    "title": "New post draft",
+    "body": "New post body draft",
+    "featured_image": 0
 }
 ```
 
@@ -24,6 +25,7 @@
 | Assert | Expected |
 | - | - |
 | StatusCode | 200 |
+| Data.status | draft |
 
 ## Finally
 

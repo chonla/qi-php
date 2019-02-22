@@ -1,6 +1,6 @@
 # Update a new post
 
-## PATCH {new-post-uri}
+## PATCH {new-post-uri}/publish
 
 | Header | Value |
 | - | - |

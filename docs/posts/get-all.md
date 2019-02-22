@@ -10,7 +10,7 @@
 | HEADER.content-type | /^application/json[;$]/ |
 | DATA.page | 1 |
 | DATA.limit | 10 |
-| DATA.result[0].id | 1 |
+| DATA.result[0].id | /^\d+$/ |
 
 ### Example
 
