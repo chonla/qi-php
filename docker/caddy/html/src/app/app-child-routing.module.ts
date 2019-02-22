@@ -40,7 +40,8 @@ const routes: Routes = [
       {
         path: 'posts/edit/:id',
         component: EditPostPageComponent,
-        canActivate: [AuthGuardService]
+        canActivate: [AuthGuardService],
+        runGuardsAndResolvers: 'always'
       },
       {
         path: 'tags',

@@ -30,13 +30,7 @@ export class NewPostPageComponent implements OnInit {
     this.postForm.disable();
     this.ps.create(this.postForm.value).subscribe({
       next: result => {
-        this.postForm.setValue({
-          title: result.title,
-          body: result.body
-        });
-        this.status = result.status;
-        this.formLocked = false;
-        this.postForm.enable();
+        this.router.navigate(['/admin','posts','edit',result.id]);
       },
       error: e => {
         this.formLocked = false;
