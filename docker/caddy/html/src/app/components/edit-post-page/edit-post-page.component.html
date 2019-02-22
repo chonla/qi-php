@@ -3,6 +3,16 @@
   <h1 class="page-title">Edit Post</h1>
   <div class="row">
     <div class="col-9 text-editor-container">
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text text-light bg-dark"><fa-icon [icon]="faLink" [fixedWidth]="true"></fa-icon></span>
+        </div>
+        <input type="text" class="form-control" [value]="slug | slugUrl" readonly #inputSlug>
+        <div class="input-group-append">
+          <button class="btn btn-primary" type="button" [ngxClipboard]="inputSlug" placement="right" popover="Copied" triggers="focus"><fa-icon [icon]="faCopy" [fixedWidth]="true"></fa-icon></button>
+        </div>
+      </div>
+
       <form *ngIf="postForm" [formGroup]="postForm" novalidate class="form">
         <input type="hidden" formControlName="id">
         <div class="card">

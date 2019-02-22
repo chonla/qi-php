@@ -3,9 +3,11 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AlertModule } from 'ngx-bootstrap/alert';
+import { PopoverModule } from 'ngx-bootstrap/popover';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { QuillModule } from 'ngx-quill';
+import { ClipboardModule } from 'ngx-clipboard';
 
 import { AppComponent } from './app.component';
 import { LoginPageComponent } from './components/login-page/login-page.component';
@@ -26,6 +28,7 @@ import { PostInfoBoxComponent } from './components/post-info-box/post-info-box.c
 import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { EditPostPageComponent } from './components/edit-post-page/edit-post-page.component';
 import { EditorToolbarComponent } from './components/editor-toolbar/editor-toolbar.component';
+import { SlugUrlPipe } from './pipes/slug-url.pipe';
 
 @NgModule({
   declarations: [
@@ -43,7 +46,8 @@ import { EditorToolbarComponent } from './components/editor-toolbar/editor-toolb
     NewPostPageComponent,
     PostInfoBoxComponent,
     EditPostPageComponent,
-    EditorToolbarComponent
+    EditorToolbarComponent,
+    SlugUrlPipe
   ],
   imports: [
     BrowserModule,
@@ -55,7 +59,9 @@ import { EditorToolbarComponent } from './components/editor-toolbar/editor-toolb
     NgxLocalStorageModule.forRoot(),
     FontAwesomeModule,
     AlertModule.forRoot(),
-    QuillModule.forRoot(environment.editor)
+    PopoverModule.forRoot(),
+    QuillModule.forRoot(environment.editor),
+    ClipboardModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,

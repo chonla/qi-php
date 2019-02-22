@@ -27,7 +27,7 @@ export class AuthService {
   }
 
   login(credential): Observable<AuthResult> {
-    return this.http.post<AuthResult>(`${environment.baseUrl}/login`, credential).pipe(shareReplay(1));
+    return this.http.post<AuthResult>(`${environment.apiBaseUrl}/login`, credential).pipe(shareReplay(1));
   }
 
   logout() {

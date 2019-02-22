@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  baseUrl: 'http://localhost:8080',
+  baseUrl: 'http://localhost:4200',
+  apiBaseUrl: 'http://localhost:8080',
   editor: {
     toolbar: [
       ['bold', 'italic', 'underline', 'strike'],        // toggled buttons

@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { faThumbtack } from '@fortawesome/free-solid-svg-icons';
+import { faThumbtack, faLink } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-post-info-box',

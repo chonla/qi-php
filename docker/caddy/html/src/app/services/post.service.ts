@@ -12,22 +12,22 @@ export class PostService {
   constructor(private http: HttpClient) { }
 
   create(post: Post): Observable<Post> {
-    return this.http.post<Post>(`${environment.baseUrl}/posts`, post);
+    return this.http.post<Post>(`${environment.apiBaseUrl}/posts`, post);
   }
 
   createDraft(post: Post): Observable<Post> {
-    return this.http.post<Post>(`${environment.baseUrl}/posts/draft`, post);
+    return this.http.post<Post>(`${environment.apiBaseUrl}/posts/draft`, post);
   }
 
   saveDraft(post: Post): Observable<Post> {
-    return this.http.patch<Post>(`${environment.baseUrl}/posts/${post.id}/draft`, post);
+    return this.http.patch<Post>(`${environment.apiBaseUrl}/posts/${post.id}/draft`, post);
   }
 
   publish(post: Post): Observable<Post> {
-    return this.http.patch<Post>(`${environment.baseUrl}/posts/${post.id}/publish`, post);
+    return this.http.patch<Post>(`${environment.apiBaseUrl}/posts/${post.id}/publish`, post);
   }
 
   get(id: string): Observable<Post> {
-    return this.http.get<Post>(`${environment.baseUrl}/posts/${id}`);
+    return this.http.get<Post>(`${environment.apiBaseUrl}/posts/${id}`);
   }
 }

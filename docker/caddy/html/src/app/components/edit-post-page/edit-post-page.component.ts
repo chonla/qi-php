@@ -4,6 +4,7 @@ import { PostService } from 'src/app/services/post.service';
 import { Router, ActivatedRoute, ParamMap, NavigationEnd } from '@angular/router';
 import { switchMap } from 'rxjs/operators';
 import { of, Subscription } from 'rxjs';
+import { faLink, faCopy } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-edit-post-page',
@@ -12,9 +13,13 @@ import { of, Subscription } from 'rxjs';
 })
 export class EditPostPageComponent implements OnInit, OnDestroy {
 
+  faLink = faLink;
+  faCopy = faCopy;
+
   postForm: FormGroup;
   formLocked: boolean;
   status: string;
+  slug: string;
   navigation$: Subscription;
 
   constructor(private fb: FormBuilder, private ps: PostService, private router: Router, private activatedRoute: ActivatedRoute) {
@@ -41,6 +46,7 @@ export class EditPostPageComponent implements OnInit, OnDestroy {
           body: post.body
         });
         this.status = post.status;
+        this.slug = post.slug;
       })
     });
   }
@@ -60,7 +66,6 @@ export class EditPostPageComponent implements OnInit, OnDestroy {
     this.postForm.disable();
     this.ps.publish(this.postForm.value).subscribe({
       next: result => {
-        console.log('publish', result);
         this.router.navigate(['/admin','posts','edit',result.id]);
         this.formLocked = false;
         this.postForm.enable();
@@ -77,7 +82,6 @@ export class EditPostPageComponent implements OnInit, OnDestroy {
     this.postForm.disable();
     this.ps.saveDraft(this.postForm.value).subscribe({
       next: result => {
-        console.log('draft', result);
         this.router.navigate(['/admin','posts','edit',result.id]);
         this.formLocked = false;
         this.postForm.enable();
