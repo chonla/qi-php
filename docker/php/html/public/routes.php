@@ -1,5 +1,7 @@
 <?php
 
+$app->get('/summary', '\Qi\Controllers\SummaryController:all'); //->add('jwt');
+
 $app->group('/posts', function () {
     $this->group('', function() {
         $this->get('', '\Qi\Controllers\PostController:all');
