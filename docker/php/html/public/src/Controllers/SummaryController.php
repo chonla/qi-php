@@ -15,10 +15,12 @@ class SummaryController {
 
     public function all(Request $request, Response $response, array $argsr) {
         $post = new Post();
-        $count = $post->count();
+        $published_count = $post->where('status', 'published')->count();
+        $draft_count = $post->where('status', 'draft')->count();
         $data = [
             'posts' => [
-                'count' => $count
+                'published_count' => $published_count,
+                'draft_count' => $draft_count
             ]
         ];
         $r = $response->withJson($data);
