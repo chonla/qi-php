@@ -29,6 +29,7 @@ import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { EditPostPageComponent } from './components/edit-post-page/edit-post-page.component';
 import { EditorToolbarComponent } from './components/editor-toolbar/editor-toolbar.component';
 import { SlugUrlPipe } from './pipes/slug-url.pipe';
+import { PluralizePipe } from './pipes/pluralize.pipe';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import { SlugUrlPipe } from './pipes/slug-url.pipe';
     PostInfoBoxComponent,
     EditPostPageComponent,
     EditorToolbarComponent,
-    SlugUrlPipe
+    SlugUrlPipe,
+    PluralizePipe
   ],
   imports: [
     BrowserModule,

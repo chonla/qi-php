@@ -4,8 +4,9 @@
   </div>
   <div class="card-body">
     <div class="row">
-      <div class="col-6">
-        <fa-icon [icon]="faThumbtack" [fixedWidth]="true" class="bullet-icon"></fa-icon><a [routerLink]="['/admin', 'posts']">0 posts</a>
+      <div class="col-6" *ngIf="info">
+        <fa-icon [icon]="faThumbtack" [fixedWidth]="true" class="bullet-icon"></fa-icon><a [routerLink]="['/admin', 'posts']">{{ info.posts.published_count }} published {{ 'post' | pluralize:info.posts.published_count }}</a><br>
+        <fa-icon [icon]="faEyeSlash" [fixedWidth]="true" class="bullet-icon"></fa-icon><a [routerLink]="['/admin', 'posts']">{{ info.posts.draft_count }} {{ 'draft' | pluralize:info.posts.draft_count }}</a>
       </div>
     </div>
   </div>

@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { faThumbtack } from '@fortawesome/free-solid-svg-icons';
+import { Component, OnInit, Input } from '@angular/core';
+import { faThumbtack, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-glance-box',
@@ -7,7 +7,10 @@ import { faThumbtack } from '@fortawesome/free-solid-svg-icons';
   styleUrls: ['./glance-box.component.scss']
 })
 export class GlanceBoxComponent implements OnInit {
+  @Input() info?;
+
   faThumbtack = faThumbtack;
+  faEyeSlash = faEyeSlash;
 
   constructor() { }
 
