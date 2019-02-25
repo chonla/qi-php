@@ -1,25 +1,31 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from 'src/app/services/auth.service';
 import { DashboardService } from 'src/app/services/dashboard.service';
 import { DashboardInfo } from 'src/app/models/dashboard-info';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-dashboard-page',
   templateUrl: './dashboard-page.component.html',
   styleUrls: ['./dashboard-page.component.scss']
 })
-export class DashboardPageComponent implements OnInit {
+export class DashboardPageComponent implements OnInit, OnDestroy {
 
   info: DashboardInfo;
+  info$: Subscription;
 
-  constructor(private auth: AuthService, private dashboardService: DashboardService) {
+  constructor(private dashboardService: DashboardService) {
   }
 
   ngOnInit() {
-    console.log(this.auth.isLoggedIn());
-    this.dashboardService.summary().subscribe(data => {
+    this.info$ = this.dashboardService.summary().subscribe(data => {
       this.info = data;
     });
+  }
+
+  ngOnDestroy() {
+    if (this.info$) {
+      this.info$.unsubscribe();
+    }
   }
 
 }
