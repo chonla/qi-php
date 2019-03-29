@@ -4,7 +4,7 @@
 
 * [Login with admin account](../common/login-with-admin.md)
 
-## POST /users
+## POST /api/users
 
 | Header | Value |
 | - | - |

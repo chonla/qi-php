@@ -11,11 +11,13 @@ use \GuzzleHttp\Psr7\LazyOpenStream;
 
 class MediaController {
     private $c;
+    private $settings;
 
     function __construct(\Slim\Container $c) {
         $this->c = $c;
         $this->media = $c->get('media');
         $this->uploader = $c->get('file');
+        $this->settings = $this->c->get('settings');
     }
 
     public function one(Request $request, Response $response, array $args) {
@@ -57,7 +59,7 @@ class MediaController {
         $media = $this->uploader->directUpload($request, $requester->id);
 
         $r = $response
-            ->withHeader('Location', sprintf('/media/%d', $media->id))
+            ->withHeader('Location', sprintf('%s/media/%d', $this->settings['apiBase'], $media->id))
             ->withStatus(201);
         return $r;
     }

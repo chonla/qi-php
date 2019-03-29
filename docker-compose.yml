@@ -1,6 +1,6 @@
 # Source from https://www.masterzendframework.com/docker-development-environment/
 ---
-version: '3.7'
+version: '2'
 
 volumes:
   database_data:
@@ -8,13 +8,16 @@ volumes:
 
 services:
   caddy:
-    image: abiosoft/caddy:php
+    image: abiosoft/caddy:0.11.1-php
     ports:
       - "80:80"
       - "443:443"
     volumes:
       - ./docker/caddy/Caddyfile:/etc/Caddyfile
       - ./docker/caddy/cert:/etc/caddycerts
+      - ./docker/caddy/html/dist/qi-client:/var/www/html
+    volumes_from:
+      - php
     links:
       - php
     restart: always
@@ -22,10 +25,12 @@ services:
       - CADDYPATH=/etc/caddycerts
   php:
     build: ./docker/php/
-    ports:
-      - "8080:80"
+    expose:
+      - 9000
+    # ports:
+    #   - "8080:80"
     volumes:
-      - ./docker/php/html:/var/www/html
+      - ./docker/php/html:/var/www/php
     links:
       - mysql
     environment:

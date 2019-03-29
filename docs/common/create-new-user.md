@@ -1,6 +1,6 @@
 # Create a new user
 
-## POST /users
+## POST /api/users
 
 | Header | Value |
 | - | - |

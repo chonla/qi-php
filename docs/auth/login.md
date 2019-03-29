@@ -1,6 +1,6 @@
 # Login Should Return Token
 
-## POST /login
+## POST /api/login
 
 | Header | Value |
 | - | - |

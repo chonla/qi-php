@@ -5,7 +5,7 @@
 * [Login with admin account](../common/login-with-admin.md)
 * [Change Password](../common/change-my-password.md)
 
-## POST /login
+## POST /api/login
 
 | Header | Value |
 | - | - |

@@ -4,7 +4,7 @@
 
 * [Login as a user](../common/login-with-user-1.md)
 
-## POST /media
+## POST /api/media
 
 | Header | Value |
 | - | - |

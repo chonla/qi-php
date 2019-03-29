@@ -1,6 +1,6 @@
 # Create a new media file
 
-## POST /media
+## POST /api/media
 
 | Header | Value |
 | - | - |

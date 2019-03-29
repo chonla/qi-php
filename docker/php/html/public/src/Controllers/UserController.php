@@ -8,9 +8,11 @@ use \Qi\Models\User as User;
 
 class UserController {
     private $c;
+    private $settings;
 
     function __construct(\Slim\Container $c) {
         $this->c = $c;
+        $this->settings = $this->c->get('settings');
     }
 
     public function all(Request $request, Response $response, array $args) {
@@ -81,7 +83,7 @@ class UserController {
         $user->save();
 
         $r = $response
-            ->withHeader('Location', sprintf('/users/%d', $user->id))
+            ->withHeader('Location', sprintf('%s/users/%d', $this->settings['apiBase'], $user->id))
             ->withStatus(201);
         return $r;
     }

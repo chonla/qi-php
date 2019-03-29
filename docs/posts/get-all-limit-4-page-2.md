@@ -1,6 +1,6 @@
 # Get all posts should return list of posts and start with page 1 and limit of 4
 
-## GET /posts?limit=4&page=2
+## GET /api/posts?limit=4&page=2
 
 ## Expectation
 

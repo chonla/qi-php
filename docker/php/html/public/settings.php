@@ -20,6 +20,7 @@ return [
         ],
         'jwt' => [
             'age' => '1 day',
-        ]
+        ],
+        'apiBase' => '/api',
     ],
 ];

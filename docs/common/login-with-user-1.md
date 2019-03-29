@@ -1,6 +1,6 @@
 # Login with valid credential with user 1 and collect token
 
-## POST /login
+## POST /api/login
 
 | Header | Value |
 | - | - |

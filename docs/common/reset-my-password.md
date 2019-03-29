@@ -1,6 +1,6 @@
 # Reset my password
 
-## PATCH /me/password
+## PATCH /api/me/password
 
 | Header | Value |
 | - | - |

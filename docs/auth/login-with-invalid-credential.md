@@ -1,6 +1,6 @@
 # Login Should Return Unauthorized Response
 
-## POST /login
+## POST /api/login
 
 | Header | Value |
 | - | - |

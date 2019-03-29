@@ -1,6 +1,6 @@
 # Create a new post
 
-## POST /posts
+## POST /api/posts
 
 | Header | Value |
 | - | - |

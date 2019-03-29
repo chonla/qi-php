@@ -1,6 +1,6 @@
 # Get all posts should return list of posts in the given page
 
-## GET /posts?&page=2
+## GET /api/posts?&page=2
 
 ## Expectation
 

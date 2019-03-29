@@ -1,6 +1,6 @@
 # Get all posts should return list of posts and start with page 1 and limit of 10
 
-## GET /posts
+## GET /api/posts
 
 ## Expectation
 

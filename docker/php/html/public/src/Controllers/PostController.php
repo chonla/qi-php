@@ -11,12 +11,14 @@ class PostController {
     private $c;
     private $paginator;
     private $posts;
+    private $settings;
 
     function __construct(\Slim\Container $c) {
         $this->c = $c;
         $this->paginator = $c->get('paginator');
         $this->posts = $c->get('posts');
         $this->postService = $c->get('post-service');
+        $this->settings = $this->c->get('settings');
     }
 
     public function all(Request $request, Response $response, array $args) {
@@ -52,7 +54,7 @@ class PostController {
         $post = $this->postService->publish($post);
 
         $r = $response
-            ->withHeader('Location', sprintf('/posts/%d', $post->id))
+            ->withHeader('Location', sprintf('%s/posts/%d', $this->settings['apiBase'], $post->id))
             ->withStatus(201)
             ->withJson($post);
         return $r;
@@ -71,7 +73,7 @@ class PostController {
         $post = $this->postService->draft($post);
 
         $r = $response
-            ->withHeader('Location', sprintf('/posts/%d', $post->id))
+            ->withHeader('Location', sprintf('%s/posts/%d', $this->settings['apiBase'], $post->id))
             ->withStatus(201)
             ->withJson($post);
         return $r;

@@ -1,6 +1,6 @@
 # Get a post should return post content
 
-## GET /posts/2
+## GET /api/posts/2
 
 ## Expectation
 

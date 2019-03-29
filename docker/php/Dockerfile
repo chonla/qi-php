@@ -1,11 +1,4 @@
-FROM php:7.3-apache
-
-RUN a2enmod rewrite
-
-ENV APACHE_DOCUMENT_ROOT /var/www/html/public
-
-RUN sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/sites-available/*.conf
-RUN sed -ri -e 's!/var/www/!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/apache2.conf /etc/apache2/conf-available/*.conf
-
-RUN docker-php-ext-install pdo_mysql \
-    && docker-php-ext-install json
+FROM php:7.3.3-fpm-alpine3.9
+RUN apk update; \
+    apk upgrade;
+RUN docker-php-ext-install mysqli pdo_mysql

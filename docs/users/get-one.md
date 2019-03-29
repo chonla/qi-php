@@ -4,7 +4,7 @@
 
 * [Login with admin account](../common/login-with-admin.md)
 
-## GET /users/1
+## GET /api/users/1
 
 | Header | Value |
 | - | - |

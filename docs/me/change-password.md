@@ -6,7 +6,7 @@ As an owner of my account, I should be able to change my own password.
 
 * [Login with admin account](../common/login-with-admin.md)
 
-## PATCH /me/password
+## PATCH /api/me/password
 
 | Header | Value |
 | - | - |

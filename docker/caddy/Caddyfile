@@ -1,19 +1,25 @@
-:80 {
-    proxy / php:8080 {
-        header_upstream Host {host}
-        header_upstream X-Real-IP {remote}
-        header_upstream X-Forwared-For {remote}
-        header_upstream X-Forwarded-Proto {scheme}
+:80/api {
+    root /var/www/php/public
+    fastcgi / php:9000 php
+    rewrite {
+        to {path} {path}/ /index.php/{uri}
     }
+    log /var/log/caddy.log
+    errors /var/log/caddy.log
     gzip
 }
-:443 {
-    proxy / php:8080 {
-        header_upstream Host {host}
-        header_upstream X-Real-IP {remote}
-        header_upstream X-Forwared-For {remote}
-        header_upstream X-Forwarded-Proto {scheme}
-    }
+:443/api {
+    # proxy /api php:8080 {
+    #     header_upstream Host {host}
+    #     header_upstream X-Real-IP {remote}
+    #     header_upstream X-Forwared-For {remote}
+    #     header_upstream X-Forwarded-Proto {scheme}
+    # }
     gzip
-    tls self_signed
+    tls off
+#    tls self_signed
+}
+:80 {
+    root /var/www/html
+    gzip
 }
