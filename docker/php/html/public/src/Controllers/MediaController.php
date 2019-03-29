@@ -28,6 +28,8 @@ class MediaController {
         }
 
         $filename = $this->uploader->getUploadedFilePath($media->filename);
+        $fileSize = filesize($filename);
+        echo $fileSize;
         $fileStream = new LazyOpenStream($filename, 'r');
         $r = $response
             ->withHeader('Content-Type', $media->mimetype)

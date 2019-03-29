@@ -15,7 +15,7 @@
     #     header_upstream X-Forwared-For {remote}
     #     header_upstream X-Forwarded-Proto {scheme}
     # }
-    gzip
+    # gzip
     tls off
 #    tls self_signed
 }

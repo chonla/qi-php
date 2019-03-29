@@ -13,7 +13,6 @@
 | - | - |
 | StatusCode | 200 |
 | HEADER.content-type | /^image/gif$/ |
-| Header.content-length | /^90$/ |
 
 ## Finally
 
