@@ -15,7 +15,7 @@
 | Assert | Expected |
 | - | - |
 | StatusCode | 200 |
-| HEADER.content-type | /^application/json[;$]/ |
+| HEADER.content-type | /^application/json($|;)/ |
 | DATA.id | 1 |
 | DATA.display | Administrator |
 | DATA.login | admin |

@@ -7,7 +7,7 @@
 | Assert | Expected |
 | - | - |
 | StatusCode | 200 |
-| HEADER.content-type | /^application/json[;$]/ |
+| HEADER.content-type | /^application/json($|;)/ |
 | DATA.page | 1 |
 | DATA.limit | 10 |
 | DATA.result[0].id | /^\d+$/ |
