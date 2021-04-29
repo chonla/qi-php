@@ -1,7 +1,7 @@
 {
     "require": {
         "slim/slim": "^3.0",
-        "illuminate/database": "^5.0",
+        "illuminate/database": "^6.20",
         "tuupola/slim-jwt-auth": "^3.0",
         "chonla/randomizr": "0.1.1",
         "guzzlehttp/psr7": "^1.5",
